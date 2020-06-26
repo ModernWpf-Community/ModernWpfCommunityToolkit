@@ -1,0 +1,43 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFrameworks>netcoreapp3.1;net461</TargetFrameworks>
+    <UseWPF>true</UseWPF>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="Assets\NotificationAssets\Sunny-Square.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Remove="Properties\DesignTimeResources.xaml" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <None Include="Properties\DesignTimeResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <ContainsDesignTimeResources>True</ContainsDesignTimeResources>
+    </None>
+  </ItemGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Emoji.Wpf" Version="0.0.19-experimental" />
+    <PackageReference Include="ModernWpfUI" Version="0.9.0" />
+  </ItemGroup>
+  
+    <ItemGroup>
+    <ProjectReference Include="..\ModernWpf.Toolkit.Controls\ModernWpf.Toolkit.Controls.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="InitialContent.md">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
