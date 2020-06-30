@@ -6,15 +6,7 @@
         xmlns:ui="http://schemas.modernwpf.com/2019" xmlns:controls="clr-namespace:ModernWpf.Toolkit.Controls;assembly=ModernWpf.Toolkit.Controls"
         mc:Ignorable="d" ui:WindowHelper.UseModernWindowStyle="True"
         Title="MainWindow" Height="450" Width="800">
-    <Grid x:Name="grid">
-        <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition />
-        </Grid.RowDefinitions>
-        <TextBox x:Name="EditorBox" Grid.Row="0" FontSize="14" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto"/>
-        <controls:MarkdownTextBlock x:Name="MDbox" Grid.Row="1"
-                                    UriPrefix="pack://application:,,," SchemeList="companyportal,randomscheme"
-                                    Header1Foreground="{DynamicResource SystemControlBackgroundAccentBrush}"
-                                    Text="{Binding ElementName=EditorBox, Path=Text, Mode=OneWay}"/>
+    <Grid>
+        
     </Grid>
 </Window>

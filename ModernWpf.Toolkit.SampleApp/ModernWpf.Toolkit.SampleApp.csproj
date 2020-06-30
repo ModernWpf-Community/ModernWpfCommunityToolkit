@@ -34,10 +34,4 @@
     <ProjectReference Include="..\ModernWpf.Toolkit.Controls\ModernWpf.Toolkit.Controls.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <None Update="InitialContent.md">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-
 </Project>

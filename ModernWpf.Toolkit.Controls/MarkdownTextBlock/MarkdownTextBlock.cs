@@ -3,9 +3,9 @@
 // See the LICENSE file in the project root for more information.
 
 using ModernWpf.Toolkit.Controls.Markdown.Render;
-using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
+using ModernWpf.Toolkit.Controls.Helpers;
 
 namespace ModernWpf.Toolkit.Controls
 {
@@ -14,27 +14,24 @@ namespace ModernWpf.Toolkit.Controls
     /// </summary>
     public partial class MarkdownTextBlock : Control, ILinkRegister, IImageResolver, ICodeBlockResolver, IEmojiInlineResolver
     {
-        static MarkdownTextBlock()
-        {
-            DefaultStyleKeyProperty.OverrideMetadata(typeof(MarkdownTextBlock), new FrameworkPropertyMetadata(typeof(MarkdownTextBlock)));
-            FontSizeProperty.OverrideMetadata(typeof(MarkdownTextBlock), new FrameworkPropertyMetadata(OnPropertyChangedStatic));
-            FlowDirectionProperty.OverrideMetadata(typeof(MarkdownTextBlock), new FrameworkPropertyMetadata(OnPropertyChangedStatic));
-            BackgroundProperty.OverrideMetadata(typeof(MarkdownTextBlock), new FrameworkPropertyMetadata(OnPropertyChangedStatic));
-            BorderBrushProperty.OverrideMetadata(typeof(MarkdownTextBlock), new FrameworkPropertyMetadata(OnPropertyChangedStatic));
-            BorderThicknessProperty.OverrideMetadata(typeof(MarkdownTextBlock), new FrameworkPropertyMetadata(OnPropertyChangedStatic));
-            FontFamilyProperty.OverrideMetadata(typeof(MarkdownTextBlock), new FrameworkPropertyMetadata(OnPropertyChangedStatic));
-            FontStretchProperty.OverrideMetadata(typeof(MarkdownTextBlock), new FrameworkPropertyMetadata(OnPropertyChangedStatic));
-            FontStyleProperty.OverrideMetadata(typeof(MarkdownTextBlock), new FrameworkPropertyMetadata(OnPropertyChangedStatic));
-            FontWeightProperty.OverrideMetadata(typeof(MarkdownTextBlock), new FrameworkPropertyMetadata(OnPropertyChangedStatic));
-            ForegroundProperty.OverrideMetadata(typeof(MarkdownTextBlock), new FrameworkPropertyMetadata(OnPropertyChangedStatic));
-            PaddingProperty.OverrideMetadata(typeof(MarkdownTextBlock), new FrameworkPropertyMetadata(OnPropertyChangedStatic));
-        }
+        private long _fontSizePropertyToken;
+        private long _flowDirectionPropertyToken;
+        private long _backgroundPropertyToken;
+        private long _borderBrushPropertyToken;
+        private long _borderThicknessPropertyToken;
+        private long _fontFamilyPropertyToken;
+        private long _fontStretchPropertyToken;
+        private long _fontStylePropertyToken;
+        private long _fontWeightPropertyToken;
+        private long _foregroundPropertyToken;
+        private long _paddingPropertyToken;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MarkdownTextBlock"/> class.
         /// </summary>
         public MarkdownTextBlock()
         {
+            DefaultStyleKey = typeof(MarkdownTextBlock);
             Loaded += OnLoaded;
             Unloaded += OnUnloaded;
         }
@@ -43,11 +40,37 @@ namespace ModernWpf.Toolkit.Controls
         {
             HookListeners();
             ThemeManager.AddActualThemeChangedHandler(this, OnActualThemeChanged);
+
+            // Register for property callbacks that are owned by our parent class.
+            _fontSizePropertyToken = this.RegisterPropertyChangedCallback(FontSizeProperty, OnPropertyChanged);
+            _flowDirectionPropertyToken = this.RegisterPropertyChangedCallback(FlowDirectionProperty, OnPropertyChanged);
+            _backgroundPropertyToken = this.RegisterPropertyChangedCallback(BackgroundProperty, OnPropertyChanged);
+            _borderBrushPropertyToken = this.RegisterPropertyChangedCallback(BorderBrushProperty, OnPropertyChanged);
+            _borderThicknessPropertyToken = this.RegisterPropertyChangedCallback(BorderThicknessProperty, OnPropertyChanged);
+            _fontFamilyPropertyToken = this.RegisterPropertyChangedCallback(FontFamilyProperty, OnPropertyChanged);
+            _fontStretchPropertyToken = this.RegisterPropertyChangedCallback(FontStretchProperty, OnPropertyChanged);
+            _fontStylePropertyToken = this.RegisterPropertyChangedCallback(FontStyleProperty, OnPropertyChanged);
+            _fontWeightPropertyToken = this.RegisterPropertyChangedCallback(FontWeightProperty, OnPropertyChanged);
+            _foregroundPropertyToken = this.RegisterPropertyChangedCallback(ForegroundProperty, OnPropertyChanged);
+            _paddingPropertyToken = this.RegisterPropertyChangedCallback(PaddingProperty, OnPropertyChanged);
         }
 
         private void OnUnloaded(object sender, RoutedEventArgs e)
         {
             ThemeManager.RemoveActualThemeChangedHandler(this, OnActualThemeChanged);
+
+            // Unregister property callbacks
+            this.UnregisterPropertyChangedCallback(FontSizeProperty, _fontSizePropertyToken);
+            this.UnregisterPropertyChangedCallback(FlowDirectionProperty, _flowDirectionPropertyToken);
+            this.UnregisterPropertyChangedCallback(BackgroundProperty, _backgroundPropertyToken);
+            this.UnregisterPropertyChangedCallback(BorderBrushProperty, _borderBrushPropertyToken);
+            this.UnregisterPropertyChangedCallback(BorderThicknessProperty, _borderThicknessPropertyToken);
+            this.UnregisterPropertyChangedCallback(FontFamilyProperty, _fontFamilyPropertyToken);
+            this.UnregisterPropertyChangedCallback(FontStretchProperty, _fontStretchPropertyToken);
+            this.UnregisterPropertyChangedCallback(FontStyleProperty, _fontStylePropertyToken);
+            this.UnregisterPropertyChangedCallback(FontWeightProperty, _fontWeightPropertyToken);
+            this.UnregisterPropertyChangedCallback(ForegroundProperty, _foregroundPropertyToken);
+            this.UnregisterPropertyChangedCallback(PaddingProperty, _paddingPropertyToken);
         }
 
         private void OnActualThemeChanged(object sender, RoutedEventArgs e)
