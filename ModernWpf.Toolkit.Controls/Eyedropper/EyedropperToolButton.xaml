@@ -1,0 +1,100 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:ModernWpf.Toolkit.Controls"
+                    xmlns:ui="http://schemas.modernwpf.com/2019">
+    
+    <Style TargetType="controls:EyedropperToolButton">
+        <Setter Property="Content" Value="&#xEF3C;" />
+        <Setter Property="FontFamily" Value="Segoe MDL2 Assets" />
+        <Setter Property="Background" Value="{DynamicResource SystemControlBackgroundBaseLowBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource SystemControlForegroundBaseHighBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource SystemControlForegroundTransparentBrush}" />
+        <Setter Property="BorderThickness" Value="2" />
+        <Setter Property="Padding" Value="8,8,16,8" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="FontWeight" Value="ExtraLight" />
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="CornerRadius" Value="{DynamicResource ControlCornerRadius}"/>
+        <Setter Property="ui:FocusVisualHelper.UseSystemFocusVisuals" Value="False" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:EyedropperToolButton">
+                    <Border x:Name="Border"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}">
+                        <Grid x:Name="RootGrid">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <ContentPresenter x:Name="ContentPresenter"
+                                          Grid.Column="1"
+                                          Margin="{TemplateBinding Padding}"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          Content="{TemplateBinding Content}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}"/>
+                            <Rectangle Width="8" Margin="2" RadiusX="1" RadiusY="1">
+                                <Rectangle.Fill>
+                                    <SolidColorBrush Color="{Binding Color, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
+                                </Rectangle.Fill>
+                            </Rectangle>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="Background" TargetName="Border" Value="{DynamicResource SystemControlBackgroundBaseLowBrush}" />
+                            <Setter Property="BorderBrush" TargetName="Border" Value="{DynamicResource SystemControlHighlightBaseMediumLowBrush}" />
+                            <Setter Property="TextElement.Foreground" TargetName="ContentPresenter" Value="{DynamicResource SystemControlHighlightBaseHighBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="true">
+                            <Setter Property="Background" TargetName="Border" Value="{DynamicResource SystemControlBackgroundBaseMediumLowBrush}" />
+                            <Setter Property="BorderBrush" TargetName="Border" Value="{DynamicResource SystemControlHighlightTransparentBrush}" />
+                            <Setter Property="TextElement.Foreground" TargetName="ContentPresenter" Value="{DynamicResource SystemControlHighlightBaseHighBrush}" />
+                        </Trigger>
+                        
+                        <!--region: Eyedropper Enabled-->
+                        
+                        <Trigger Property="EyedropperEnabled" Value="true">
+                            <Setter Property="Background" TargetName="Border" Value="{DynamicResource SystemControlHighlightAccentBrush}" />
+                            <Setter Property="BorderBrush" TargetName="Border" Value="{DynamicResource SystemControlHighlightAltTransparentBrush}" />
+                            <Setter Property="TextElement.Foreground" TargetName="ContentPresenter" Value="{DynamicResource SystemControlHighlightAltChromeWhiteBrush}" />
+                        </Trigger>
+
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="true" />
+                                <Condition Property="EyedropperEnabled" Value="true" />
+                            </MultiTrigger.Conditions>
+                            <Setter Property="Background" TargetName="Border" Value="{DynamicResource SystemControlHighlightAccentBrush}" />
+                            <Setter Property="BorderBrush" TargetName="Border" Value="{DynamicResource SystemControlHighlightBaseMediumLowBrush}" />
+                            <Setter Property="TextElement.Foreground" TargetName="ContentPresenter" Value="{DynamicResource SystemControlHighlightAltChromeWhiteBrush}" />
+                        </MultiTrigger>
+                        
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsPressed" Value="true" />
+                                <Condition Property="EyedropperEnabled" Value="true" />
+                            </MultiTrigger.Conditions>
+                            <Setter Property="Background" TargetName="Border" Value="{DynamicResource SystemControlHighlightBaseMediumLowBrush}" />
+                            <Setter Property="BorderBrush" TargetName="Border" Value="Transparent" />
+                            <Setter Property="TextElement.Foreground" TargetName="ContentPresenter" Value="{DynamicResource SystemControlHighlightBaseHighBrush}" />
+                        </MultiTrigger>
+                        
+                        <!--endregion-->
+
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Background" TargetName="Border" Value="{DynamicResource SystemControlBackgroundBaseLowBrush}" />
+                            <Setter Property="BorderBrush" TargetName="Border" Value="{DynamicResource SystemControlDisabledTransparentBrush}" />
+                            <Setter Property="TextElement.Foreground" TargetName="ContentPresenter" Value="{DynamicResource SystemControlDisabledBaseMediumLowBrush}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+</ResourceDictionary>

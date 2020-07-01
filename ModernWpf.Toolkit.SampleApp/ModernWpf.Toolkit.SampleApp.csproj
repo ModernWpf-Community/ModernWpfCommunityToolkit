@@ -2,10 +2,14 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFrameworks>netcoreapp3.1;net461</TargetFrameworks>
+    <TargetFrameworks>netcoreapp3.1;net462</TargetFrameworks>
     <UseWPF>true</UseWPF>
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Assets\Photos\WestSeattleView.jpg" />
+  </ItemGroup>
 
   <ItemGroup>
     <Content Include="Assets\NotificationAssets\Sunny-Square.png">
@@ -30,8 +34,12 @@
     <PackageReference Include="ModernWpfUI" Version="0.9.0" />
   </ItemGroup>
   
-    <ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\ModernWpf.Toolkit.Controls\ModernWpf.Toolkit.Controls.csproj" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Resource Include="Assets\Photos\WestSeattleView.jpg" />
   </ItemGroup>
 
 </Project>
