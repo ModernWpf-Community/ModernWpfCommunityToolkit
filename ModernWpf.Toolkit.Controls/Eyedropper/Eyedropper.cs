@@ -38,10 +38,13 @@ namespace ModernWpf.Toolkit.Controls
         public Eyedropper()
         {
             DefaultStyleKey = typeof(Eyedropper);
-            _rootGrid = new Grid();
+            _rootGrid = new Grid
+            {
+                Background = new SolidColorBrush(Color.FromArgb(0x1F, 0x00, 0xFF, 0x00))
+            };
             _targetGrid = new Grid
             {
-                Background = new SolidColorBrush(Color.FromArgb(0x01, 0x00, 0x00, 0x00))
+                Background = new SolidColorBrush(Color.FromArgb(0x1F, 0xFF, 0x00, 0x00))
             };
 
             OwnerWindow ??= Application.Current?.MainWindow;
@@ -111,13 +114,7 @@ namespace ModernWpf.Toolkit.Controls
                 ShowActivated = false
             };
 
-            FrameworkElement content = (FrameworkElement)OwnerWindow.Content;
-
-            _overlayWindow.Width = content.ActualWidth;
-            _overlayWindow.Height = content.ActualHeight;
-
-            var point = content.PointToScreen(default);
-            _overlayWindow.Left = point.X; _overlayWindow.Top = point.Y;
+            UpdateOverlayWindowBounds();
 
             _overlayWindow.SourceInitialized += OverlayWindow_SourceInitialized;
 
@@ -173,10 +170,7 @@ namespace ModernWpf.Toolkit.Controls
 
         private void Window_LocationChanged(object sender, EventArgs e)
         {
-            FrameworkElement content = (FrameworkElement)OwnerWindow.Content;
-
-            var point = content.PointToScreen(default);
-            _overlayWindow.Left = point.X; _overlayWindow.Top = point.Y;
+            UpdateOverlayWindowBounds();
         }
 
         private void UnhookEvents()
@@ -231,6 +225,7 @@ namespace ModernWpf.Toolkit.Controls
         private void Window_DpiChanged(object sender, DpiChangedEventArgs e)
         {
             UpdateAppScreenshot();
+            UpdateOverlayWindowBounds();
         }
 
         private void TargetGrid_MouseUp(object sender, MouseButtonEventArgs e)
@@ -310,11 +305,21 @@ namespace ModernWpf.Toolkit.Controls
         {
             if (_overlayWindow != null)
             {
-                FrameworkElement content = (FrameworkElement)OwnerWindow.Content;
-
-                _overlayWindow.Width = content.ActualWidth;
-                _overlayWindow.Height = content.ActualHeight;
+                UpdateOverlayWindowBounds();
             }
+        }
+
+        private void UpdateOverlayWindowBounds()
+        {
+            FrameworkElement content = (FrameworkElement)OwnerWindow.Content;
+
+            _overlayWindow.Width = content.ActualWidth;
+            _overlayWindow.Height = content.ActualHeight;
+
+            DpiScale dpiScale = VisualTreeHelper.GetDpi(OwnerWindow);
+
+            var point = content.PointToScreen(default);
+            _overlayWindow.Left = point.X / dpiScale.DpiScaleX; _overlayWindow.Top = point.Y / dpiScale.DpiScaleY;
         }
 
         private void UpdateOwnerWindow(Window oldWindow)

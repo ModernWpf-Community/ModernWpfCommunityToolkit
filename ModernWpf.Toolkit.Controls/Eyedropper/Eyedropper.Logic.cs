@@ -2,6 +2,7 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 // See the LICENSE file in the project root for more information.
 
+using ModernWpf.Toolkit.Controls.Helpers;
 using System;
 using System.Diagnostics;
 using System.Windows;
@@ -129,48 +130,24 @@ namespace ModernWpf.Toolkit.Controls
         }
 
         internal void UpdateAppScreenshot()
-        {
-            DpiScale dpiScale = VisualTreeHelper.GetDpi(OwnerWindow);
-
-            double dpiX = dpiScale.PixelsPerInchX;
-            double dpiY = dpiScale.PixelsPerInchY;
-            double scale = dpiScale.PixelsPerDip;
-            
+        {            
             FrameworkElement content = (FrameworkElement)OwnerWindow.Content;
-            double width = content.ActualWidth;
-            double height = content.ActualHeight;
+            int width = (int)Math.Ceiling(content.ActualWidth);
+            int height = (int)Math.Ceiling(content.ActualHeight);
 
             try
             {
-                var scaleWidth = (int)Math.Ceiling(width / scale);
-                var scaleHeight = (int)Math.Ceiling(height / scale);
                 var renderTargetBitmap = new RenderTargetBitmap(
-                    scaleWidth,
-                    scaleHeight,
-                    dpiX, dpiY, PixelFormats.Pbgra32);
+                    width, height,
+                    96, 96, PixelFormats.Pbgra32);
                 renderTargetBitmap.Render(content);
 
                 _appScreenshot = BitmapFrame.Create(renderTargetBitmap);
             }
             catch (OutOfMemoryException ex)
             {
-                System.Diagnostics.Debug.WriteLine(ex);
+                Debug.WriteLine(ex);
             }
-        }
-    }
-
-    internal static class GraphicsHelpers
-    {
-        public static Color GetPixelColor(this BitmapFrame bitmapFrame, double x, double y)
-        {
-            if (x <= bitmapFrame.PixelWidth && y <= bitmapFrame.PixelHeight)
-            {
-                var croppedBitmap = new CroppedBitmap(bitmapFrame, new Int32Rect((int)x, (int)y, 1, 1));
-                var pixels = new byte[4];
-                croppedBitmap.CopyPixels(pixels, 4, 0);
-                return Color.FromArgb(pixels[3], pixels[2], pixels[1], pixels[0]);
-            }
-            return Colors.Transparent;
         }
     }
 }

@@ -8,7 +8,7 @@ using ColorCode.Parsing;
 using ColorCode.Styling;
 using ColorCode.Common;
 
-namespace ModernWpf.Toolkit
+namespace ModernWpf.Toolkit.Controls
 {
     /// <summary>
     /// Creates a <see cref="CodeBlockFormatter"/>, for rendering Syntax Highlighted code to a FlowDocument.
