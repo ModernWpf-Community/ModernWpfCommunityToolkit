@@ -4,6 +4,7 @@
     <OutputType>WinExe</OutputType>
     <TargetFrameworks>netcoreapp3.1;net462</TargetFrameworks>
     <UseWPF>true</UseWPF>
+    <LangVersion>8.0</LangVersion>
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
 
@@ -36,6 +37,8 @@
   
   <ItemGroup>
     <ProjectReference Include="..\ModernWpf.Toolkit.UI.Controls\ModernWpf.Toolkit.UI.Controls.csproj" />
+    <ProjectReference Include="..\ModernWpf.Toolkit.UI\ModernWpf.Toolkit.UI.csproj" />
+    <ProjectReference Include="..\ModernWpf.Toolkit\ModernWpf.Toolkit.csproj" />
   </ItemGroup>
   
   <ItemGroup>
