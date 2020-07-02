@@ -10,19 +10,19 @@
                     <ui:ThemeResources.ThemeDictionaries>
                         <ResourceDictionary x:Key="Light" ui:ThemeDictionary.Key="Light">
                             <ResourceDictionary.MergedDictionaries>
-                                <ResourceDictionary Source="/ModernWpf.Toolkit.Controls;component/ThemeResources/Light.xaml"/>
+                                <ResourceDictionary Source="/ModernWpf.Toolkit.UI.Controls;component/ThemeResources/Light.xaml"/>
                             </ResourceDictionary.MergedDictionaries>
                         </ResourceDictionary>
 
                         <ResourceDictionary x:Key="Dark" ui:ThemeDictionary.Key="Dark">
                             <ResourceDictionary.MergedDictionaries>
-                                <ResourceDictionary Source="/ModernWpf.Toolkit.Controls;component/ThemeResources/Dark.xaml"/>
+                                <ResourceDictionary Source="/ModernWpf.Toolkit.UI.Controls;component/ThemeResources/Dark.xaml"/>
                             </ResourceDictionary.MergedDictionaries>
                         </ResourceDictionary>
 
                         <ResourceDictionary x:Key="HighContrast" ui:ThemeDictionary.Key="HighContrast">
                             <ResourceDictionary.MergedDictionaries>
-                                <ResourceDictionary Source="/ModernWpf.Toolkit.Controls;component/ThemeResources/HighContrast.xaml"/>
+                                <ResourceDictionary Source="/ModernWpf.Toolkit.UI.Controls;component/ThemeResources/HighContrast.xaml"/>
                             </ResourceDictionary.MergedDictionaries>
                         </ResourceDictionary>
                     </ui:ThemeResources.ThemeDictionaries>
