@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows;
 
-namespace ModernWpf.Toolkit.UI.Controls.Helpers
+namespace ModernWpf.Toolkit.UI.Extensions
 {
-    public static class DependencyObjectHelper
+    public static class DependencyObjectExtensions
     {
         private static Dictionary<long, (DependencyPropertyDescriptor Descriptor, EventHandler Handler)> descriptors = new Dictionary<long, (DependencyPropertyDescriptor Descriptor, EventHandler Handler)>();
 
@@ -14,9 +14,12 @@ namespace ModernWpf.Toolkit.UI.Controls.Helpers
             long token = new Random().Next(0, int.MaxValue);
             var descriptor = DependencyPropertyDescriptor.FromProperty(dependencyProperty, dependencyObject.GetType());
 
+            var oldValue = dependencyObject.GetValue(dependencyProperty);
             EventHandler handler = (s, e) =>
             {
-                callback.Invoke(dependencyObject, new DependencyPropertyChangedEventArgs());
+                var newValue = dependencyObject.GetValue(dependencyProperty);
+                callback.Invoke(dependencyObject, new DependencyPropertyChangedEventArgs(dependencyProperty, oldValue, newValue));
+                oldValue = newValue;
             };
 
             while (descriptors.ContainsKey(token))

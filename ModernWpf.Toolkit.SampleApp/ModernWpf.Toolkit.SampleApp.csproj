@@ -37,8 +37,6 @@
   
   <ItemGroup>
     <ProjectReference Include="..\ModernWpf.Toolkit.UI.Controls\ModernWpf.Toolkit.UI.Controls.csproj" />
-    <ProjectReference Include="..\ModernWpf.Toolkit.UI\ModernWpf.Toolkit.UI.csproj" />
-    <ProjectReference Include="..\ModernWpf.Toolkit\ModernWpf.Toolkit.csproj" />
   </ItemGroup>
   
   <ItemGroup>
