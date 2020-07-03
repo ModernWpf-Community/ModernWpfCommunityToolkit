@@ -6,7 +6,7 @@
         xmlns:ui="http://schemas.modernwpf.com/2019" xmlns:controls="clr-namespace:ModernWpf.Toolkit.UI.Controls;assembly=ModernWpf.Toolkit.UI.Controls"
         mc:Ignorable="d" ui:WindowHelper.UseModernWindowStyle="True"
         Title="MainWindow" Height="450" Width="800">
-    <Grid Background="{DynamicResource SystemControlBackgroundChromeMediumBrush}">
+    <!--<Grid Background="{DynamicResource SystemControlBackgroundChromeMediumBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -22,5 +22,6 @@
                 <DropShadowEffect ShadowDepth="0" BlurRadius="10"/>
             </Rectangle.Effect>
         </Rectangle>
-    </Grid>
+    </Grid>-->
+    <controls:TokenizingTextBox />
 </Window>

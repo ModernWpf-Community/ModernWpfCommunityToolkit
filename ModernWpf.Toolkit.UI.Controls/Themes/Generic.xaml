@@ -5,6 +5,7 @@
         <ResourceDictionary Source="/ModernWpf.Toolkit.UI.Controls;component/MarkdownTextBlock/MarkdownTextBlock.xaml"/>
         <ResourceDictionary Source="/ModernWpf.Toolkit.UI.Controls;component/Eyedropper/Eyedropper.xaml"/>
         <ResourceDictionary Source="/ModernWpf.Toolkit.UI.Controls;component/Eyedropper/EyedropperToolButton.xaml"/>
+        <ResourceDictionary Source="/ModernWpf.Toolkit.UI.Controls;component/TokenizingTextBox/TokenizingTextBox.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>
