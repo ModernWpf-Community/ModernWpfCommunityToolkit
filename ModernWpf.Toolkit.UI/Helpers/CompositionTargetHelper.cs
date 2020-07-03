@@ -21,7 +21,10 @@ namespace ModernWpf.Toolkit.UI.Helpers
         /// <returns>Awaitable Task</returns>
         public static Task<bool> ExecuteAfterCompositionRenderingAsync(Action action)
         {
-            //Guard.IsNotNull(action, nameof(action));
+            if (action == null)
+            {
+                throw new ArgumentNullException($"Parameter { nameof(action) }({ typeof(Action) }) must be not null)");
+            }
 
             var taskCompletionSource = new TaskCompletionSource<bool>();
 
