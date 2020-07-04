@@ -190,7 +190,7 @@ namespace ModernWpf.Toolkit.UI.Controls
         #region Visual State Management for Parent
         private void AutoSuggestBox_MouseEnter(object sender, MouseEventArgs e)
         {
-            VisualStateManager.GoToState(Owner, TokenizingTextBox.PART_PointerOverState, true);
+            VisualStateManager.GoToState(Owner, TokenizingTextBox.PART_MouseOverState, true);
         }
 
         private void AutoSuggestBox_MouseLeave(object sender, MouseEventArgs e)

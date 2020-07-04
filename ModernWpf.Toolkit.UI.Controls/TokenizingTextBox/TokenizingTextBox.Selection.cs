@@ -130,7 +130,7 @@ namespace ModernWpf.Toolkit.UI.Controls
         {
             _ = Dispatcher.InvokeAsync(() =>
             {
-                this.SelectAll();
+                SelectAll();
 
                 // need to synchronize the select all and the focus behaviour on the text box
                 // because there is no way to identify that the focus has been set from this point
@@ -143,8 +143,7 @@ namespace ModernWpf.Toolkit.UI.Controls
                     {
                         // grab any selected text
                         var pretoken = ItemContainerGenerator.ContainerFromItem(item) as TokenizingTextBoxItem;
-                        pretoken._autoSuggestTextBox.SelectionStart = 0;
-                        pretoken._autoSuggestTextBox.SelectionLength = pretoken._autoSuggestTextBox.Text.Length;
+                        pretoken._autoSuggestTextBox.SelectAll();
                     }
                 }
 

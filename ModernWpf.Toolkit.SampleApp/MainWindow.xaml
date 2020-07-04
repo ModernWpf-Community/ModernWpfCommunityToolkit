@@ -23,5 +23,7 @@
             </Rectangle.Effect>
         </Rectangle>
     </Grid>-->
-    <controls:TokenizingTextBox />
+    <Grid>
+        <controls:TokenizingTextBox Margin="10" Height="70" PlaceholderText="Type here" QueryIcon="Setting"/>
+    </Grid>
 </Window>

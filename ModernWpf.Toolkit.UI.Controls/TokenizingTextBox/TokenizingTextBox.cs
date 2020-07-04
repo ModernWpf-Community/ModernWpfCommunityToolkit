@@ -19,26 +19,26 @@ namespace ModernWpf.Toolkit.UI.Controls
     /// <summary>
     /// A text input control that auto-suggests and displays token items.
     /// </summary>
-    [TemplatePart(Name = PART_NormalState, Type = typeof(VisualState))]
-    [TemplatePart(Name = PART_PointerOverState, Type = typeof(VisualState))]
-    [TemplatePart(Name = PART_FocusedState, Type = typeof(VisualState))]
-    [TemplatePart(Name = PART_UnfocusedState, Type = typeof(VisualState))]
+    [TemplateVisualState(GroupName = "CommonStates", Name = PART_NormalState)]
+    [TemplateVisualState(GroupName = "CommonStates", Name = PART_MouseOverState)]
+    [TemplateVisualState(GroupName = "FocusStates", Name = PART_FocusedState)]
+    [TemplateVisualState(GroupName = "FocusStates", Name = PART_UnfocusedState)]
     public partial class TokenizingTextBox : ListViewBase
     {
         internal const string PART_NormalState = "Normal";
-        internal const string PART_PointerOverState = "PointerOver";
+        internal const string PART_MouseOverState = "MouseOver";
         internal const string PART_FocusedState = "Focused";
         internal const string PART_UnfocusedState = "Unfocused";
 
         /// <summary>
         /// Gets a value indicating whether the shift key is currently in a pressed state
         /// </summary>
-        internal static bool IsShiftPressed => Keyboard.IsKeyDown(Key.LeftShift | Key.RightShift);
+        internal static bool IsShiftPressed => Keyboard.Modifiers == ModifierKeys.Shift;
 
         /// <summary>
         /// Gets a value indicating whether the control key is currently in a pressed state
         /// </summary>
-        internal bool IsControlPressed => Keyboard.IsKeyDown(Key.LeftCtrl | Key.RightCtrl);
+        internal bool IsControlPressed => Keyboard.Modifiers == ModifierKeys.Control;
 
         internal bool PauseTokenClearOnFocus { get; set; }
 
@@ -209,7 +209,7 @@ namespace ModernWpf.Toolkit.UI.Controls
         {
             var container = ItemContainerGenerator.ContainerFromItem(_currentTextEdit) as TokenizingTextBoxItem;
 
-            if (container != null && !(GetFocusedElement() == container._autoSuggestTextBox || key == Key.LeftCtrl || key == Key.RightCtrl))
+            if (container != null && !(GetFocusedElement() == container._autoSuggestTextBox || IsControlPressed))
             {
                 if (SelectedItems.Count > 0)
                 {
