@@ -1,5 +1,4 @@
-﻿using ModernWpf.Toolkit.UI.Controls;
-using System.Windows;
+﻿using System.Windows;
 
 namespace ModernWpf.Toolkit.SampleApp
 {
