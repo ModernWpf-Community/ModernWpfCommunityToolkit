@@ -16,7 +16,7 @@
         <Setter Property="FontWeight" Value="ExtraLight" />
         <Setter Property="FontSize" Value="18" />
         <Setter Property="CornerRadius" Value="{DynamicResource ControlCornerRadius}"/>
-        <Setter Property="ui:FocusVisualHelper.UseSystemFocusVisuals" Value="False" />
+        <Setter Property="ui:FocusVisualHelper.UseSystemFocusVisuals" Value="{DynamicResource UseSystemFocusVisuals}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="controls:EyedropperToolButton">

@@ -6,13 +6,14 @@
         xmlns:ui="http://schemas.modernwpf.com/2019" xmlns:controls="clr-namespace:ModernWpf.Toolkit.UI.Controls;assembly=ModernWpf.Toolkit.UI.Controls"
         mc:Ignorable="d" ui:WindowHelper.UseModernWindowStyle="True"
         Title="MainWindow" Height="450" Width="800">
-    <!--<Grid Background="{DynamicResource SystemControlBackgroundChromeMediumBrush}">
+    <Grid Background="{DynamicResource SystemControlBackgroundChromeMediumBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <controls:EyedropperToolButton Grid.Row="0" HorizontalAlignment="Center" TargetElement="{Binding ElementName=Image}"/>
-        <Image Margin="20"  Grid.Row="1" x:Name="Image" Source="/Assets/Photos/WestSeattleView.jpg" />
+        <Image Margin="10" Grid.Row="1" x:Name="Image" Source="/Assets/Photos/WestSeattleView.jpg" />
         <Button Content="Global Eyedropper" Click="Button_Click"/>
         <Rectangle Stroke="{DynamicResource SystemControlBackgroundBaseHighBrush}" Margin="10" RadiusX="4" RadiusY="4" StrokeThickness="1" Width="20" Height="20" HorizontalAlignment="Right" ToolTip="{Binding ElementName=TargetSolidColorBrush, Path=Color}">
             <Rectangle.Fill>
@@ -22,8 +23,6 @@
                 <DropShadowEffect ShadowDepth="0" BlurRadius="10"/>
             </Rectangle.Effect>
         </Rectangle>
-    </Grid>-->
-    <Grid>
-        <controls:TokenizingTextBox Margin="10" Height="70" PlaceholderText="Type here" QueryIcon="Setting"/>
+        <controls:TokenizingTextBox Margin="5" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Bottom" PlaceholderText="Type here" QueryIcon="Setting"/>
     </Grid>
 </Window>

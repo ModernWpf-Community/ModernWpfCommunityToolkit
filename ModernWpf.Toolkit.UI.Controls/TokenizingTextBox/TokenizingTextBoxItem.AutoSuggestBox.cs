@@ -45,16 +45,6 @@ namespace ModernWpf.Toolkit.UI.Controls
         /// </summary>
         private bool IsAllSelected => _autoSuggestTextBox?.SelectedText == _autoSuggestTextBox?.Text && !string.IsNullOrEmpty(_autoSuggestTextBox?.Text);
 
-        /// <summary>
-        /// Used to track if we're on the first character of the textbox while there is selected text
-        /// </summary>
-        private bool _isSelectedFocusOnFirstCharacter = false;
-
-        /// <summary>
-        /// Used to track if we're on the last character of the textbox while there is selected text
-        /// </summary>
-        private bool _isSelectedFocusOnLastCharacter = false;
-
         /// Called from <see cref="OnApplyTemplate"/>
         private void OnApplyTemplateAutoSuggestBox(AutoSuggestBox auto)
         {
@@ -262,23 +252,13 @@ namespace ModernWpf.Toolkit.UI.Controls
             }
         }
 
-        //private void AutoSuggestTextBox_SelectionChanging(TextBox sender, TextBoxSelectionChangingEventArgs args)
-        //{
-        //    _isSelectedFocusOnFirstCharacter = args.SelectionLength > 0 && args.SelectionStart == 0 && _autoSuggestTextBox.SelectionStart > 0;
-        //    _isSelectedFocusOnLastCharacter =
-        //        //// see if we are NOW on the last character.
-        //        //// test if the new selection includes the last character, and the current selection doesn't
-        //        (args.SelectionStart + args.SelectionLength == _autoSuggestTextBox.Text.Length) &&
-        //        (_autoSuggestTextBox.SelectionStart + _autoSuggestTextBox.SelectionLength != _autoSuggestTextBox.Text.Length);
-        //}
-
         private void AutoSuggestTextBox_PreviewKeyDown(object sender, KeyEventArgs e)
         {
             if (IsCaretAtStart &&
                 (e.Key == Key.Back ||
                  e.Key == Key.Left))
             {
-                // if the back key is pressed and there is any selection in the text box then the text box can handle it
+                var _isSelectedFocusOnFirstCharacter = _autoSuggestTextBox.SelectionLength > 0 && _autoSuggestTextBox.SelectionStart > 0;
                 if ((e.Key == Key.Left && _isSelectedFocusOnFirstCharacter) ||
                     _autoSuggestTextBox.SelectionLength == 0)
                 {
@@ -296,7 +276,7 @@ namespace ModernWpf.Toolkit.UI.Controls
             }
             else if (IsCaretAtEnd && e.Key == Key.Right)
             {
-                // if the back key is pressed and there is any selection in the text box then the text box can handle it
+                var _isSelectedFocusOnLastCharacter = _autoSuggestTextBox.SelectionStart + _autoSuggestTextBox.SelectionLength != _autoSuggestTextBox.Text.Length;
                 if (_isSelectedFocusOnLastCharacter || _autoSuggestTextBox.SelectionLength == 0)
                 {
                     if (Owner.SelectNextItem(this))

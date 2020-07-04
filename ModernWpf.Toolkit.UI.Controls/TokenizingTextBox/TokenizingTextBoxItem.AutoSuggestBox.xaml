@@ -7,7 +7,7 @@
         <Setter Property="Background" Value="{DynamicResource SystemControlBackgroundChromeMediumLowBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource SystemControlTransparentBrush}" />
         <Setter Property="IsTabStop" Value="False" />
-        <Setter Property="UseSystemFocusVisuals" Value="False" />
+        <Setter Property="UseSystemFocusVisuals" Value="{DynamicResource UseSystemFocusVisuals}" />
         <Setter Property="MinWidth" Value="128" />
         <Setter Property="Template">
             <Setter.Value>
@@ -15,6 +15,7 @@
                     <ui:AutoSuggestBox Name="PART_AutoSuggestBox"
                                        UpdateTextOnSelect="False"
                                        BorderThickness="0"
+                                       CornerRadius="0"
                                        Style="{Binding Path=Owner.AutoSuggestBoxStyle, RelativeSource={RelativeSource Mode=TemplatedParent}}"
                                        DisplayMemberPath="{Binding Path=Owner.DisplayMemberPath, RelativeSource={RelativeSource Mode=TemplatedParent}}"
                                        TextMemberPath="{Binding Path=Owner.TextMemberPath, RelativeSource={RelativeSource Mode=TemplatedParent}}"

@@ -11,7 +11,7 @@
 
     <!--  Resources for TokenizingTextBox  -->
     <Thickness x:Key="TokenizingTextBoxPadding">4</Thickness>
-    <Thickness x:Key="TokenizingTextBoxPresenterMargin">0,0,6,0</Thickness>
+    <Thickness x:Key="TokenizingTextBoxPresenterMargin">0</Thickness>
     <system:Double x:Key="TokenizingTextBoxTokenSpacing">2</system:Double>
     <Thickness x:Key="TextControlBorderThemeThicknessFocused">2</Thickness>
 
@@ -114,7 +114,7 @@
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
         <Setter Property="ScrollViewer.IsDeferredScrollingEnabled" Value="False" />
         <Setter Property="TokenSpacing" Value="{StaticResource TokenizingTextBoxTokenSpacing}" />
-        <Setter Property="UseSystemFocusVisuals" Value="True" />
+        <Setter Property="UseSystemFocusVisuals" Value="{DynamicResource UseSystemFocusVisuals}" />
         <Setter Property="IsItemClickEnabled" Value="True"/>
         <Setter Property="ItemsPanel">
             <Setter.Value>
