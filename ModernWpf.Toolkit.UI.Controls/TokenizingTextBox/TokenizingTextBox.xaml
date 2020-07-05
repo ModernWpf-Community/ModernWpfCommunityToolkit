@@ -108,6 +108,7 @@
         <Setter Property="BorderThickness" Value="{DynamicResource TextControlBorderThemeThickness}" />
         <Setter Property="CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
         <Setter Property="IsTabStop" Value="False" />
+        <Setter Property="KeyboardNavigation.TabNavigation" Value="Once" />
         <Setter Property="Padding" Value="{StaticResource TokenizingTextBoxPadding}" />
         <Setter Property="SelectionMode" Value="Extended" />
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />

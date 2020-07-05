@@ -79,7 +79,7 @@ namespace ModernWpf.Toolkit.UI.Controls
                             : newItem._autoSuggestTextBox.Text.Length;
                     }
 
-                    newItem.Focus();
+                    Keyboard.Focus(newItem);
 
                     // if no control keys are selected then the selection also becomes just this item
                     if (IsShiftPressed)
@@ -153,7 +153,7 @@ namespace ModernWpf.Toolkit.UI.Controls
 
         internal void DeselectAllTokensAndText(TokenizingTextBoxItem ignoreItem = null)
         {
-            SelectedItem = null;
+            UnselectAll();
             ClearAllTextSelections(ignoreItem);
         }
 
@@ -205,7 +205,7 @@ namespace ModernWpf.Toolkit.UI.Controls
             if (testFunc(currentIndex))
             {
                 var newItem = ItemContainerGenerator.ContainerFromItem(Items[currentIndex + increment]) as ListViewItem;
-                newItem.Focus();
+                Keyboard.Focus(newItem);
                 SelectedItems.Add(Items[currentIndex + increment]);
                 returnVal = true;
             }
@@ -228,7 +228,7 @@ namespace ModernWpf.Toolkit.UI.Controls
             }
 
             // focus the item prior to the first selected item
-            (ItemContainerGenerator.ContainerFromIndex(newSelectedIndex) as TokenizingTextBoxItem).Focus();
+            Keyboard.Focus(ItemContainerGenerator.ContainerFromIndex(newSelectedIndex) as TokenizingTextBoxItem);
         }
 
         private async void TokenizingTextBoxItem_ClearClicked(TokenizingTextBoxItem sender, RoutedEventArgs args)

@@ -205,7 +205,7 @@ namespace ModernWpf.Toolkit.UI.Controls
             TextChanged?.Invoke(sender, args);
         }
 
-        private async Task<bool> TokenizingTextBox_CharacterReceived(Key key)
+        private async void TokenizingTextBox_CharacterReceived(Key key)
         {
             var container = ItemContainerGenerator.ContainerFromItem(_currentTextEdit) as TokenizingTextBoxItem;
 
@@ -233,7 +233,7 @@ namespace ModernWpf.Toolkit.UI.Controls
 
                             lastContainer._autoSuggestTextBox.SelectionStart = 1; // Set position to after our new character inserted
 
-                            lastContainer._autoSuggestTextBox.Focus();
+                            Keyboard.Focus(lastContainer._autoSuggestTextBox);
                         }
                         else
                         {
@@ -256,7 +256,7 @@ namespace ModernWpf.Toolkit.UI.Controls
                                     {
                                         newContainer._autoSuggestTextBox.SelectionStart = 1; // Set position to after our new character inserted
 
-                                        newContainer._autoSuggestTextBox.Focus();
+                                        Keyboard.Focus(newContainer._autoSuggestTextBox);
                                     }
 
                                     newContainer.Loaded -= WaitForLoad;
@@ -284,14 +284,10 @@ namespace ModernWpf.Toolkit.UI.Controls
 
                         last._autoSuggestTextBox.SelectionStart = position + 1; // Set position to after our new character inserted
 
-                        last._autoSuggestTextBox.Focus();
+                        Keyboard.Focus(last._autoSuggestTextBox);
                     }
                 }
-
-                return true;
             }
-
-            return false;
         }
 
         private object GetFocusedElement()
@@ -452,7 +448,7 @@ namespace ModernWpf.Toolkit.UI.Controls
 
             // Focus back to our end box as Outlook does.
             var last = ItemContainerGenerator.ContainerFromItem(_lastTextEdit) as TokenizingTextBoxItem;
-            last?._autoSuggestTextBox.Focus();
+            Keyboard.Focus(last?._autoSuggestTextBox);
 
             TokenItemAdded?.Invoke(this, data);
 
