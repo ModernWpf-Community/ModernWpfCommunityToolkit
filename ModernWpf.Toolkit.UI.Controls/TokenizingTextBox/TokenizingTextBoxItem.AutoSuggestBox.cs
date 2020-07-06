@@ -58,6 +58,7 @@ namespace ModernWpf.Toolkit.UI.Controls
                 _autoSuggestBox.MouseEnter -= AutoSuggestBox_MouseEnter;
                 _autoSuggestBox.MouseLeave -= AutoSuggestBox_MouseLeave;
                 _autoSuggestBox.MouseUp -= AutoSuggestBox_MouseLeave;
+                _autoSuggestBox.LostMouseCapture -= AutoSuggestBox_MouseLeave;
                 _autoSuggestBox.GotFocus -= AutoSuggestBox_GotFocus;
                 _autoSuggestBox.LostFocus -= AutoSuggestBox_LostFocus;
 
@@ -77,6 +78,7 @@ namespace ModernWpf.Toolkit.UI.Controls
                 _autoSuggestBox.MouseEnter += AutoSuggestBox_MouseEnter;
                 _autoSuggestBox.MouseLeave += AutoSuggestBox_MouseLeave;
                 _autoSuggestBox.MouseUp += AutoSuggestBox_MouseLeave;
+                _autoSuggestBox.LostMouseCapture += AutoSuggestBox_MouseLeave;
                 _autoSuggestBox.GotFocus += AutoSuggestBox_GotFocus;
                 _autoSuggestBox.LostFocus += AutoSuggestBox_LostFocus;
 
@@ -277,6 +279,7 @@ namespace ModernWpf.Toolkit.UI.Controls
             else if (IsCaretAtEnd && e.Key == Key.Right)
             {
                 var _isSelectedFocusOnLastCharacter = _autoSuggestTextBox.SelectionStart + _autoSuggestTextBox.SelectionLength != _autoSuggestTextBox.Text.Length;
+                // if the back key is pressed and there is any selection in the text box then the text box can handle it
                 if (_isSelectedFocusOnLastCharacter || _autoSuggestTextBox.SelectionLength == 0)
                 {
                     if (Owner.SelectNextItem(this))
