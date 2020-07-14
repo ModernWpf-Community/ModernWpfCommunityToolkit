@@ -66,6 +66,7 @@ namespace ModernWpf.Toolkit.UI.Controls
             this.RegisterPropertyChangedCallback(ItemsSourceProperty, ItemsSource_PropertyChanged);
             PreviewKeyDown += TokenizingTextBox_PreviewKeyDown;
             PreviewKeyUp += TokenizingTextBox_PreviewKeyUp;
+            PreviewTextInput += TokenizingTextBox_PreviewTextInput;
             ItemClick += TokenizingTextBox_ItemClick;
         }
 
@@ -95,12 +96,7 @@ namespace ModernWpf.Toolkit.UI.Controls
 
         private void TokenizingTextBox_PreviewKeyUp(object sender, KeyEventArgs e)
         {
-            TokenizingTextBox_PreviewKeyUp(e.Key);
-        }
-
-        internal void TokenizingTextBox_PreviewKeyUp(Key key)
-        {
-            switch (key)
+            switch (e.Key)
             {
                 case Key.Escape:
                     {
@@ -125,19 +121,14 @@ namespace ModernWpf.Toolkit.UI.Controls
 
         private async void TokenizingTextBox_PreviewKeyDown(object sender, KeyEventArgs e)
         {
-            e.Handled = await TokenizingTextBox_PreviewKeyDown(e.Key);
-        }
-
-        internal async Task<bool> TokenizingTextBox_PreviewKeyDown(Key key)
-        {
             // Global handlers on control regardless if focused on item or in textbox.
-            switch (key)
+            switch (e.Key)
             {
                 case Key.C:
                     if (IsControlPressed)
                     {
                         CopySelectedToClipboard();
-                        return true;
+                        e.Handled = true;
                     }
 
                     break;
@@ -155,23 +146,23 @@ namespace ModernWpf.Toolkit.UI.Controls
 
                 // For moving between tokens
                 case Key.Left:
-                    return MoveFocusAndSelection(MoveDirection.Previous);
+                    e.Handled = MoveFocusAndSelection(MoveDirection.Previous);
+                    break;
 
                 case Key.Right:
-                    return MoveFocusAndSelection(MoveDirection.Next);
+                    e.Handled = MoveFocusAndSelection(MoveDirection.Next);
+                    break;
 
                 case Key.A:
                     // modify the select-all behaviour to ensure the text in the edit box gets selected.
                     if (IsControlPressed)
                     {
                         SelectAllTokensAndText();
-                        return true;
+                        e.Handled = true;
                     }
 
                     break;
             }
-
-            return false;
         }
 
         /// <inheritdoc/>
@@ -205,11 +196,10 @@ namespace ModernWpf.Toolkit.UI.Controls
             TextChanged?.Invoke(sender, args);
         }
 
-        private async void TokenizingTextBox_CharacterReceived(Key key)
+        private async void TokenizingTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            var container = ItemContainerGenerator.ContainerFromItem(_currentTextEdit) as TokenizingTextBoxItem;
-
-            if (container != null && !(GetFocusedElement() == container._autoSuggestTextBox || IsControlPressed))
+            if (ItemContainerGenerator.ContainerFromItem(_currentTextEdit) is TokenizingTextBoxItem container &&
+                !(FocusManager.GetFocusedElement(this) == container._autoSuggestTextBox || IsControlPressed))
             {
                 if (SelectedItems.Count > 0)
                 {
@@ -227,7 +217,7 @@ namespace ModernWpf.Toolkit.UI.Controls
 
                             lastContainer.UseCharacterAsUser = true; // Make sure we trigger a refresh of suggested items.
 
-                            _lastTextEdit.Text = string.Empty + key.ToString();
+                            _lastTextEdit.Text = string.Empty + e.Text;
 
                             UpdateCurrentTextEdit(_lastTextEdit);
 
@@ -239,7 +229,7 @@ namespace ModernWpf.Toolkit.UI.Controls
                         {
                             //// Otherwise, create a new textbox for this text.
 
-                            UpdateCurrentTextEdit(new PretokenStringContainer((string.Empty + key.ToString()).Trim())); // Trim so that 'space' isn't inserted and can be used to insert a new box.
+                            UpdateCurrentTextEdit(new PretokenStringContainer((string.Empty + e.Text).Trim())); // Trim so that 'space' isn't inserted and can be used to insert a new box.
 
                             _innerItemsSource.Insert(index, _currentTextEdit);
 
@@ -279,7 +269,7 @@ namespace ModernWpf.Toolkit.UI.Controls
                     {
                         var last = ItemContainerGenerator.ContainerFromIndex(Items.Count - 1) as TokenizingTextBoxItem; // Should be our last text box
                         var position = last._autoSuggestTextBox.SelectionStart;
-                        textToken.Text = last._autoSuggestTextBox.Text.Substring(0, position) + key.ToString() +
+                        textToken.Text = last._autoSuggestTextBox.Text.Substring(0, position) + e.Text +
                                          last._autoSuggestTextBox.Text.Substring(position);
 
                         last._autoSuggestTextBox.SelectionStart = position + 1; // Set position to after our new character inserted
@@ -287,12 +277,8 @@ namespace ModernWpf.Toolkit.UI.Controls
                         Keyboard.Focus(last._autoSuggestTextBox);
                     }
                 }
+                e.Handled = true;
             }
-        }
-
-        private object GetFocusedElement()
-        {
-            return FocusManager.GetFocusedElement(this);
         }
 
         #region ItemsControl Container Methods

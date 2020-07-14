@@ -31,7 +31,7 @@ namespace ModernWpf.Toolkit.UI.Controls
         private bool MoveFocusAndSelection(MoveDirection direction)
         {
             bool retVal = false;
-            var currentContainerItem = GetCurrentContainerItem();
+            var currentContainerItem = FocusManager.GetFocusedElement(this) as TokenizingTextBoxItem;
 
             if (currentContainerItem != null)
             {
@@ -121,11 +121,6 @@ namespace ModernWpf.Toolkit.UI.Controls
             return retVal;
         }
 
-        private TokenizingTextBoxItem GetCurrentContainerItem()
-        {
-            return FocusManager.GetFocusedElement(this) as TokenizingTextBoxItem;
-        }
-
         internal void SelectAllTokensAndText()
         {
             _ = Dispatcher.InvokeAsync(() =>
@@ -143,7 +138,8 @@ namespace ModernWpf.Toolkit.UI.Controls
                     {
                         // grab any selected text
                         var pretoken = ItemContainerGenerator.ContainerFromItem(item) as TokenizingTextBoxItem;
-                        pretoken._autoSuggestTextBox.SelectAll();
+                        pretoken._autoSuggestTextBox.SelectionStart = 0;
+                        pretoken._autoSuggestTextBox.SelectionLength = pretoken._autoSuggestTextBox.Text.Length;
                     }
                 }
 
@@ -242,7 +238,7 @@ namespace ModernWpf.Toolkit.UI.Controls
         /// <returns>async task</returns>
         internal async Task RemoveAllSelectedTokens()
         {
-            var currentContainerItem = GetCurrentContainerItem();
+            var currentContainerItem = FocusManager.GetFocusedElement(this) as TokenizingTextBoxItem;
 
             while (SelectedItems.Count > 0)
             {
