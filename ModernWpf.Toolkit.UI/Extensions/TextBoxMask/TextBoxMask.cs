@@ -41,7 +41,7 @@ namespace ModernWpf.Toolkit.UI.Extensions
         {
             var textbox = (TextBox)sender;
 
-            // incase no value is provided us it as normal textbox
+            // In case no value is provided, use it as normal textbox
             var mask = textbox.GetValue(MaskProperty) as string;
             if (string.IsNullOrWhiteSpace(mask))
             {
@@ -73,12 +73,10 @@ namespace ModernWpf.Toolkit.UI.Extensions
 
             var placeHolder = placeHolderValue[0];
 
-            var representationDictionary = new Dictionary<char, string>
-            {
-                { AlphaCharacterRepresentation.Key, AlphaCharacterRepresentation.Value },
-                { NumericCharacterRepresentation.Key, NumericCharacterRepresentation.Value },
-                { AlphaNumericRepresentation.Key, AlphaNumericRepresentation.Value }
-            };
+            var representationDictionary = new Dictionary<char, string>();
+            representationDictionary.Add(AlphaCharacterRepresentation.Key, AlphaCharacterRepresentation.Value);
+            representationDictionary.Add(NumericCharacterRepresentation.Key, NumericCharacterRepresentation.Value);
+            representationDictionary.Add(AlphaNumericRepresentation.Key, AlphaNumericRepresentation.Value);
 
             var customDictionaryValue = textbox.GetValue(CustomMaskProperty) as string;
             if (!string.IsNullOrWhiteSpace(customDictionaryValue))
@@ -297,7 +295,7 @@ namespace ModernWpf.Toolkit.UI.Extensions
 
             if (!isDeleteOrBackspace)
             {
-                // Case change happended due to user input
+                // In case the change happended due to user input
                 var selectedChar = textbox.SelectionStart > 0 ?
                                     textbox.Text[textbox.SelectionStart - 1] :
                                     placeHolder;

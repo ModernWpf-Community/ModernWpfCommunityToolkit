@@ -15,7 +15,7 @@ namespace ModernWpf.Toolkit.UI.Extensions
         /// Gets the matrix that represents this transform.
         /// Implements WPF's SkewTransform.Value.
         /// </summary>
-        /// <param name="transform">Extended SkewTranform.</param>
+        /// <param name="transform">Extended SkewTransform.</param>
         /// <returns>Matrix representing transform.</returns>
         public static Matrix GetMatrix(this ScaleTransform transform)
         {

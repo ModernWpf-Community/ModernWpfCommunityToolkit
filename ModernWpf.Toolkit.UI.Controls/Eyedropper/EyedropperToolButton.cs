@@ -2,6 +2,7 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 // See the LICENSE file in the project root for more information.
 
+using ModernWpf.Toolkit.Extensions;
 using System;
 using System.Windows;
 using System.Windows.Controls.Primitives;
@@ -127,7 +128,7 @@ namespace ModernWpf.Toolkit.UI.Controls
 
                 var transform = TargetElement.TransformToVisual(content);
                 var position = transform.Transform(default);
-                _eyedropper.WorkArea = new Rect(position, new Size(TargetElement.ActualWidth, TargetElement.ActualHeight));
+                _eyedropper.WorkArea = position.ToRect(new Size(TargetElement.ActualWidth, TargetElement.ActualHeight));
 
                 _eyedropper.UpdateAppScreenshot();
             }

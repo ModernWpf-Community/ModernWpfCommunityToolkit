@@ -4,10 +4,7 @@
     <TargetFrameworks>net5.0-windows10.0.18362.0;netcoreapp3.1;net462</TargetFrameworks>
     <UseWPF>true</UseWPF>
     <LangVersion>8.0</LangVersion>
-    <Title>ModernWpf Community Toolkit Controls</Title>
-    <Description>
-      This library provides XAML templated controls. It is part of the ModernWpf Community Toolkit.
-    </Description>
+    <Title>ModernWpf Community Toolkit Controls Markdown</Title>
   </PropertyGroup>
 
   <ItemGroup>
@@ -16,14 +13,20 @@
 
   <ItemGroup>
     <None Include="Properties\DesignTimeResources.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
       <ContainsDesignTimeResources>True</ContainsDesignTimeResources>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </None>
   </ItemGroup>
   
   <ItemGroup>
-    <ProjectReference Include="..\ModernWpf.Toolkit.UI\ModernWpf.Toolkit.UI.csproj" />
+    <PackageReference Include="ColorCode.Core" Version="2.0.6" />
+    <PackageReference Include="Microsoft.Toolkit.Parsers" Version="7.0.0-preview2" />
   </ItemGroup>
   
+  <ItemGroup>
+    <ProjectReference Include="..\ModernWpf.Toolkit.UI.Controls\ModernWpf.Toolkit.UI.Controls.csproj" />
+    <ProjectReference Include="..\ModernWpf.Toolkit.UI\ModernWpf.Toolkit.UI.csproj" />
+  </ItemGroup>
+
 </Project>

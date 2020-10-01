@@ -2,6 +2,7 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 // See the LICENSE file in the project root for more information.
 
+using ModernWpf.Toolkit.Extensions;
 using ModernWpf.Toolkit.UI.Helpers;
 using System;
 using System.Diagnostics;
@@ -99,7 +100,7 @@ namespace ModernWpf.Toolkit.UI.Controls
                 startPoint.X = 0;
                 for (var x = startX; x < endX; x++)
                 {
-                    var rectangleGeometry = new RectangleGeometry() { Rect = new Rect(startPoint, size) };
+                    var rectangleGeometry = new RectangleGeometry() { Rect = startPoint.ToRect(size) };
                     var geometryDrawing = new GeometryDrawing(_appScreenshot.GetPixelBrush(x, y), new Pen(brush, 1.0), rectangleGeometry);
                     drawingGroup.Children.Add(geometryDrawing);
 

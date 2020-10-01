@@ -9,7 +9,7 @@ using System.Windows.Markup;
 namespace ModernWpf.Toolkit.UI.Extensions
 {
     /// <summary>
-    /// Custom <see cref="MarkupExtension"/> which can provide symbol-baased <see cref="FontIcon"/> values.
+    /// Custom <see cref="MarkupExtension"/> which can provide symbol-based <see cref="FontIcon"/> values.
     /// </summary>
     [MarkupExtensionReturnType(typeof(SymbolIcon))]
     public class SymbolIconExtension : TextIconExtension
@@ -22,14 +22,24 @@ namespace ModernWpf.Toolkit.UI.Extensions
         /// <inheritdoc/>
         public override object ProvideValue(IServiceProvider serviceProvider)
         {
-            var symbolIcon = new SymbolIcon(Symbol);
+            var fontIcon = new FontIcon
+            {
+                Glyph = unchecked((char)Symbol).ToString(),
+                FontWeight = FontWeight,
+                FontStyle = FontStyle
+            };
+
+            if (FontSize > 0)
+            {
+                fontIcon.FontSize = FontSize;
+            }
 
             if (Foreground != null)
             {
-                symbolIcon.Foreground = Foreground;
+                fontIcon.Foreground = Foreground;
             }
 
-            return symbolIcon;
+            return fontIcon;
         }
     }
 }

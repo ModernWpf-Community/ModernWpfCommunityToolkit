@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModernWpf.Toolkit", "Modern
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModernWpf.Toolkit.UI", "ModernWpf.Toolkit.UI\ModernWpf.Toolkit.UI.csproj", "{DB1F7DC6-5FC7-4987-816E-65E66BAD7154}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModernWpf.Toolkit.UI.Controls.Markdown", "ModernWpf.Toolkit.UI.Controls.Markdown\ModernWpf.Toolkit.UI.Controls.Markdown.csproj", "{EE62AF2F-FB8B-472D-AF17-3F62F588A41F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{DB1F7DC6-5FC7-4987-816E-65E66BAD7154}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB1F7DC6-5FC7-4987-816E-65E66BAD7154}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DB1F7DC6-5FC7-4987-816E-65E66BAD7154}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE62AF2F-FB8B-472D-AF17-3F62F588A41F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE62AF2F-FB8B-472D-AF17-3F62F588A41F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE62AF2F-FB8B-472D-AF17-3F62F588A41F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE62AF2F-FB8B-472D-AF17-3F62F588A41F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

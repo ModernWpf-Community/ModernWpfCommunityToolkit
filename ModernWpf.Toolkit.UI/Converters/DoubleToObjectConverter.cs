@@ -13,7 +13,7 @@ namespace ModernWpf.Toolkit.UI.Converters
     /// <summary>
     /// This class converts a double value into an other object.
     /// Can be used to convert doubles to visibility, a couple of colors, couple of images, etc.
-    /// If GreaterThan and LessThan are both set, the logic looks for a value inbetween the two values.
+    /// If GreaterThan and LessThan are both set, the logic looks for a value between the two values.
     /// Otherwise the logic looks for the value to be GreaterThan or LessThan the specified value.
     /// The ConverterParameter can be used to invert the logic.
     /// </summary>
@@ -150,7 +150,7 @@ namespace ModernWpf.Toolkit.UI.Converters
         /// </summary>
         /// <remarks>If the <paramref name="value"/> parameter is a reference type, <see cref="TrueValue"/> must match its reference to return true.</remarks>
         /// <param name="value">The target data being passed to the source.</param>
-        /// <param name="targetType">The type of the target property, as a type reference (System.Type for Microsoft .NET, a TypeName helper struct for Visual C++ component extensions (C++/CX)).</param>
+        /// <param name="targetType">The type of the target property, as a type reference.</param>
         /// <param name="parameter">An optional parameter to be used to invert the converter logic.</param>
         /// <param name="language">The language of the conversion.</param>
         /// <returns>The value to be passed to the source object.</returns>
