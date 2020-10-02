@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFrameworks>net5.0;netcoreapp3.1;net462</TargetFrameworks>
+    <TargetFrameworks>net5.0-windows10.0.18362.0;netcoreapp3.1;net462</TargetFrameworks>
     <UseWPF>true</UseWPF>
     <LangVersion>8.0</LangVersion>
     <ApplicationManifest>app.manifest</ApplicationManifest>
