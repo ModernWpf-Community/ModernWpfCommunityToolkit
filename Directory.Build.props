@@ -1,12 +1,12 @@
 ﻿<Project>
   <PropertyGroup>
 	<Version>0.1.0-alpha</Version>
-    <Authors>ModernWpf.Toolkit</Authors>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-	<RepositoryUrl>https://github.com/ShankarBUS/ModernWpfCommunityToolkit</RepositoryUrl>
-    <PackageProjectUrl>https://github.com/ShankarBUS/ModernWpfCommunityToolkit</PackageProjectUrl>
+  <Authors>ModernWpf.Toolkit</Authors>
+  <PackageLicenseExpression>MIT</PackageLicenseExpression>
+	<RepositoryUrl>https://github.com/ModernWpf-Community/ModernWpfCommunityToolkit</RepositoryUrl>
+  <PackageProjectUrl>https://github.com/ModernWpf-Community/ModernWpfCommunityToolkit</PackageProjectUrl>
 	<PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <RepositoryType>git</RepositoryType>
-    <PackageOutputPath>$(MSBuildThisFileDirectory)localpackages</PackageOutputPath>
+  <RepositoryType>git</RepositoryType>
+  <PackageOutputPath>$(MSBuildThisFileDirectory)localpackages</PackageOutputPath>
   </PropertyGroup>
 </Project>
