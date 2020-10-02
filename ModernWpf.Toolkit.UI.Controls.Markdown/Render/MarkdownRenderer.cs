@@ -42,7 +42,7 @@ namespace ModernWpf.Toolkit.UI.Controls.Markdown.Render
         public FlowDocument Render()
         {
             var document = new FlowDocument()
-            { 
+            {
                 PagePadding = Padding,
                 FontFamily = FontFamily,
                 FontSize = FontSize,

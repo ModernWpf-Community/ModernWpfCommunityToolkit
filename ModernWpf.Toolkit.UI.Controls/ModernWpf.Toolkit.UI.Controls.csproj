@@ -8,6 +8,7 @@
     <Description>
       This library provides XAML templated controls. It is part of the ModernWpf Community Toolkit.
     </Description>
+    <PackageTags>WPF ModernWpf Windows Controls XAML</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>

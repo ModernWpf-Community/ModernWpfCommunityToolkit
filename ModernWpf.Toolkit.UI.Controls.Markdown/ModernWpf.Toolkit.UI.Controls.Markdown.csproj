@@ -5,6 +5,10 @@
     <UseWPF>true</UseWPF>
     <LangVersion>8.0</LangVersion>
     <Title>ModernWpf Community Toolkit Controls Markdown</Title>
+    <Description>
+      This library provides a XAML MarkdownTextBlock control, an efficient and extensible control that can parse and render markdown. It is part of the ModernWpf Community Toolkit.
+    </Description>
+    <PackageTags>WPF ModernWpf Toolkit Windows Controls XAML Markdown MarkdownTextBlock</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>

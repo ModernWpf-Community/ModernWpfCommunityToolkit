@@ -4,7 +4,7 @@
     <TargetFrameworks>net5.0-windows10.0.18362.0;netcoreapp3.1;net462</TargetFrameworks>
     <UseWPF>true</UseWPF>
     <LangVersion>8.0</LangVersion>
-    <Title>Windows Community Toolkit UI</Title>
+    <Title>ModernWpf Community Toolkit UI</Title>
     <Description>
       This library provides UI components, such as XAML extensions, helpers, converters and more. It is part of the ModernWpf Community Toolkit.
 
@@ -30,7 +30,7 @@
       - DependencyPropertyWatcher: Used to Track Changes of a Dependency Property.
       - GraphicsHelper: Used to get pixel's color from a bitmap source.
     </Description>
-    <PackageTags>ModernWpf Toolkit Windows UI Converters XAML extensions helpers</PackageTags>
+    <PackageTags>WPF ModernWpf Toolkit Windows UI Converters XAML extensions helpers</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>

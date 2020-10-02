@@ -6,7 +6,7 @@
     <LangVersion>8.0</LangVersion>
     <Title>ModernWpf Community Toolkit</Title>
     <Description>This package includes code only helpers such as Colors conversion tool and some others.</Description>
-    <PackageTags>ModernWpf Toolkit Windows</PackageTags>
+    <PackageTags>WPF ModernWpf Toolkit Windows</PackageTags>
   </PropertyGroup>
 
 </Project>
