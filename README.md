@@ -15,5 +15,5 @@ The ModernWpf Community Toolkit is a collection of helper functions and custom c
 [Toolkit.UI.Pre]: https://www.nuget.org/packages/ModernWpf.Toolkit.UI/absoluteLatest
 [Toolkit.UI.Controls]: https://www.nuget.org/packages/ModernWpf.Toolkit.UI.Controls/
 [Toolkit.UI.Controls.Pre]: https://www.nuget.org/packages/ModernWpf.Toolkit.UI.Controls/absoluteLatest
-[Toolkit.UI.Controls.Markdown]: https://www.nuget.org/packages/ModernWpf.Toolkit.UI.Controls/
-[Toolkit.UI.Controls.Markdown.Pre]: https://www.nuget.org/packages/ModernWpf.Toolkit.UI.Controls/absoluteLatest
+[Toolkit.UI.Controls.Markdown]: https://www.nuget.org/packages/ModernWpf.Toolkit.UI.Controls.Markdown/
+[Toolkit.UI.Controls.Markdown.Pre]: https://www.nuget.org/packages/ModernWpf.Toolkit.UI.Controls.Markdown/absoluteLatest
