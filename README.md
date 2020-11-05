@@ -1,7 +1,37 @@
 # ModernWpfCommunityToolkit
-The ModernWpf Community Toolkit is a collection of helper functions and custom controls for the ModernWpf library.
+The **ModernWpf Community Toolkit** is a collection of helper functions and custom controls for the **[ModernWpf](https://github.com/Kinnara/ModernWpf)** library.
 
-## Packages
+> The packages published by this repository are not yet ready to use in production. We are trying our best to make this library stable and usable as soon as possible.
+
+## ModernWpf Community Toolkit & the [Windows Community Toolkit](https://github.com/windows-toolkit/WindowsCommunityToolkit)
+
+First of all, we must thank the contributors of the **WCT** for their awesome work on the toolkit.
+
+The **ModernWpf Community Toolkit (MCT)** is a port of the well-known & popular **[Windows Community Toolkit](https://github.com/windows-toolkit/WindowsCommunityToolkit)** to **WPF**/**ModernWpf**.
+
+The **[Windows Community Toolkit](https://github.com/windows-toolkit/WindowsCommunityToolkit) (WCT)** [being a part of the **.NET Foundation** and actively developed by **Microsoft** and the **community**] is a collection of helper functions, custom controls and app services which simplifies and helps the development of UWP apps for Windows.
+
+It has some parts which depend on some **UWP only APIs** (which can't be used from Win32 apps). And some parts are dependent on the **UWP XAML** (aka **WinUI**). Thus, rendering the WCT unusable from some application (such as **pure WPF apps**).
+
+To resolve this barrier, **ModernWpf Community Toolkit** was made.
+
+**ModernWpf Community Toolkit** is also a collection of helper functions and custom controls but for building **WPF (Win32) apps**.
+
+This toolkit depends on another well-known & popular library called **[ModernWpf](https://github.com/Kinnara/ModernWpf)** which brings **WinUI** controls & styles to **WPF** applications. Whereas, this toolkit brings some **WCT** controls & helpers to **WPF**.
+
+There may be some differences (in APIs or availability of some features) between **MCT** and **WCT** due to certain difference between WPF (.NET) & UWP (WinRT) APIs.
+
+Most of the source code are ported from the **WCT** (some differences or variations can be found).
+
+This toolkit contains ported **custom controls** and some features that are not restricted **UWP only** from **WCT**.
+
+Parts of the WCT which target **.NET Standard** (as you can use them from any .NET library/application) are not ported. However, some WinUI (UWP XAML) specific features are ported.
+
+This toolkit also contains some additional controls and helpers that are **WPF or ModernWpf specific**.
+
+So, **ModernWpf** ≋ **WinUI** and **MCT** ≋ **WCT**.
+
+## NuGet Packages
 | NuGet Package | Latest Versions |
 | --- | --- |
 | [ModernWpf.Toolkit][Toolkit] | [![latest stable version](https://img.shields.io/nuget/v/ModernWpf.Toolkit)][Toolkit]<br />[![latest prerelease version](https://img.shields.io/nuget/vpre/ModernWpf.Toolkit)][Toolkit.Pre] |

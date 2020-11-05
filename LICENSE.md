@@ -1,5 +1,8 @@
 MIT License
 
+Copyright (c) .NET Foundation and Contributors
+All rights reserved.
+
 Copyright (c) 2020 Shankar
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

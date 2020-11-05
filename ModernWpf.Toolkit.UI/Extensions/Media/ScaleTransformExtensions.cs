@@ -19,6 +19,7 @@ namespace ModernWpf.Toolkit.UI.Extensions
         /// <returns>Matrix representing transform.</returns>
         public static Matrix GetMatrix(this ScaleTransform transform)
         {
+            transform.
             var I = Matrix.Identity;
             I.ScaleAt(transform.ScaleX, transform.ScaleY, transform.CenterX, transform.CenterY);
             return I;
