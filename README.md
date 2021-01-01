@@ -1,7 +1,9 @@
 # ModernWpfCommunityToolkit
+
 The **ModernWpf Community Toolkit** is a collection of helper functions and custom controls for the **[ModernWpf](https://github.com/Kinnara/ModernWpf)** library.
 
-> The packages published by this repository are not yet ready to use in production. We are trying our best to make this library stable and usable as soon as possible.
+This project incorporates components from the [Windows Community Toolkit](https://github.com/windows-toolkit/WindowsCommunityToolkit).
+The [Windows Community Toolkit](https://github.com/windows-toolkit/WindowsCommunityToolkit)'s license and 3rd party notices could be found [here](https://github.com/windows-toolkit/WindowsCommunityToolkit/blob/master/license.md) and [here](https://github.com/windows-toolkit/WindowsCommunityToolkit/blob/master/ThirdPartyNotices.txt) respectively.
 
 ## ModernWpf Community Toolkit & the [Windows Community Toolkit](https://github.com/windows-toolkit/WindowsCommunityToolkit)
 
