@@ -15,308 +15,342 @@ namespace ModernWpf.Toolkit.UI.Controls
         /// <summary>
         /// Gets the dependency property for <see cref="InlineCodePadding"/>.
         /// </summary>
-        public static readonly DependencyProperty InlineCodePaddingProperty = DependencyProperty.Register(
-            nameof(InlineCodePadding),
-            typeof(Thickness),
-            typeof(MarkdownTextBlock),
-            new PropertyMetadata(OnPropertyChangedStatic));
+        public static readonly DependencyProperty InlineCodePaddingProperty =
+            DependencyProperty.Register(
+                nameof(InlineCodePadding),
+                typeof(Thickness),
+                typeof(MarkdownTextBlock),
+                new PropertyMetadata(OnPropertyChangedStatic));
 
         /// <summary>
         /// Gets the dependency property for <see cref="InlineCodeMargin"/>.
         /// </summary>
-        public static readonly DependencyProperty InlineCodeMarginProperty = DependencyProperty.Register(
-            nameof(InlineCodeMargin),
-            typeof(Thickness),
-            typeof(MarkdownTextBlock),
-            new PropertyMetadata(OnPropertyChangedStatic));
+        public static readonly DependencyProperty InlineCodeMarginProperty =
+            DependencyProperty.Register(
+                nameof(InlineCodeMargin),
+                typeof(Thickness),
+                typeof(MarkdownTextBlock),
+                new PropertyMetadata(OnPropertyChangedStatic));
 
         /// <summary>
         /// Gets the dependency property for <see cref="InlineCodeBorderThickness"/>.
         /// </summary>
-        public static readonly DependencyProperty InlineCodeBorderThicknessProperty = DependencyProperty.Register(
-            nameof(InlineCodeBorderThickness),
-            typeof(Thickness),
-            typeof(MarkdownTextBlock),
-            new PropertyMetadata(OnPropertyChangedStatic));
+        public static readonly DependencyProperty InlineCodeBorderThicknessProperty =
+            DependencyProperty.Register(
+                nameof(InlineCodeBorderThickness),
+                typeof(Thickness),
+                typeof(MarkdownTextBlock),
+                new PropertyMetadata(OnPropertyChangedStatic));
 
         /// <summary>
         /// Gets the dependency property for <see cref="ImageStretch"/>.
         /// </summary>
-        public static readonly DependencyProperty ImageStretchProperty = DependencyProperty.Register(
-            nameof(ImageStretch),
-            typeof(Stretch),
-            typeof(MarkdownTextBlock),
-            new PropertyMetadata(OnPropertyChangedStatic));
+        public static readonly DependencyProperty ImageStretchProperty =
+            DependencyProperty.Register(
+                nameof(ImageStretch),
+                typeof(Stretch),
+                typeof(MarkdownTextBlock),
+                new PropertyMetadata(OnPropertyChangedStatic));
 
         /// <summary>
         /// Gets the dependency property for <see cref="CodeBorderThickness"/>.
         /// </summary>
-        public static readonly DependencyProperty CodeBorderThicknessProperty = DependencyProperty.Register(
-            nameof(CodeBorderThickness),
-            typeof(Thickness),
-            typeof(MarkdownTextBlock),
-            new PropertyMetadata(OnPropertyChangedStatic));
+        public static readonly DependencyProperty CodeBorderThicknessProperty =
+            DependencyProperty.Register(
+                nameof(CodeBorderThickness),
+                typeof(Thickness),
+                typeof(MarkdownTextBlock),
+                new PropertyMetadata(OnPropertyChangedStatic));
 
         /// <summary>
         /// Gets the dependency property for <see cref="CodeMargin"/>.
         /// </summary>
-        public static readonly DependencyProperty CodeMarginProperty = DependencyProperty.Register(
-            nameof(CodeMargin),
-            typeof(Thickness),
-            typeof(MarkdownTextBlock),
-            new PropertyMetadata(OnPropertyChangedStatic));
+        public static readonly DependencyProperty CodeMarginProperty =
+            DependencyProperty.Register(
+                nameof(CodeMargin),
+                typeof(Thickness),
+                typeof(MarkdownTextBlock),
+                new PropertyMetadata(OnPropertyChangedStatic));
 
         /// <summary>
         /// Gets the dependency property for <see cref="CodePadding"/>.
         /// </summary>
-        public static readonly DependencyProperty CodePaddingProperty = DependencyProperty.Register(
-            nameof(CodePadding),
-            typeof(Thickness),
-            typeof(MarkdownTextBlock),
-            new PropertyMetadata(OnPropertyChangedStatic));
+        public static readonly DependencyProperty CodePaddingProperty =
+            DependencyProperty.Register(
+                nameof(CodePadding),
+                typeof(Thickness),
+                typeof(MarkdownTextBlock),
+                new PropertyMetadata(OnPropertyChangedStatic));
 
         /// <summary>
         /// Gets the dependency property for <see cref="Header1FontSize"/>.
         /// </summary>
-        public static readonly DependencyProperty Header1FontSizeProperty = DependencyProperty.Register(
-            nameof(Header1FontSize),
-            typeof(double),
-            typeof(MarkdownTextBlock),
-            new PropertyMetadata(OnPropertyChangedStatic));
+        public static readonly DependencyProperty Header1FontSizeProperty =
+            DependencyProperty.Register(
+                nameof(Header1FontSize),
+                typeof(double),
+                typeof(MarkdownTextBlock),
+                new PropertyMetadata(OnPropertyChangedStatic));
 
         /// <summary>
         /// Gets the dependency property for <see cref="Header1Margin"/>.
         /// </summary>
-        public static readonly DependencyProperty Header1MarginProperty = DependencyProperty.Register(
-            nameof(Header1Margin),
-            typeof(Thickness),
-            typeof(MarkdownTextBlock),
-            new PropertyMetadata(OnPropertyChangedStatic));
+        public static readonly DependencyProperty Header1MarginProperty =
+            DependencyProperty.Register(
+                nameof(Header1Margin),
+                typeof(Thickness),
+                typeof(MarkdownTextBlock),
+                new PropertyMetadata(OnPropertyChangedStatic));
 
         /// <summary>
         /// Gets the dependency property for <see cref="Header2FontSize"/>.
         /// </summary>
-        public static readonly DependencyProperty Header2FontSizeProperty = DependencyProperty.Register(
-            nameof(Header2FontSize),
-            typeof(double),
-            typeof(MarkdownTextBlock),
-            new PropertyMetadata(OnPropertyChangedStatic));
+        public static readonly DependencyProperty Header2FontSizeProperty =
+            DependencyProperty.Register(
+                nameof(Header2FontSize),
+                typeof(double),
+                typeof(MarkdownTextBlock),
+                new PropertyMetadata(OnPropertyChangedStatic));
 
         /// <summary>
         /// Gets the dependency property for <see cref="Header2Margin"/>.
         /// </summary>
-        public static readonly DependencyProperty Header2MarginProperty = DependencyProperty.Register(
-            nameof(Header2Margin),
-            typeof(Thickness),
-            typeof(MarkdownTextBlock),
-            new PropertyMetadata(OnPropertyChangedStatic));
+        public static readonly DependencyProperty Header2MarginProperty =
+            DependencyProperty.Register(
+                nameof(Header2Margin),
+                typeof(Thickness),
+                typeof(MarkdownTextBlock),
+                new PropertyMetadata(OnPropertyChangedStatic));
 
         /// <summary>
         /// Gets the dependency property for <see cref="Header3FontSize"/>.
         /// </summary>
-        public static readonly DependencyProperty Header3FontSizeProperty = DependencyProperty.Register(
-            nameof(Header3FontSize),
-            typeof(double),
-            typeof(MarkdownTextBlock),
-            new PropertyMetadata(OnPropertyChangedStatic));
+        public static readonly DependencyProperty Header3FontSizeProperty =
+            DependencyProperty.Register(
+                nameof(Header3FontSize),
+                typeof(double),
+                typeof(MarkdownTextBlock),
+                new PropertyMetadata(OnPropertyChangedStatic));
 
         /// <summary>
         /// Gets the dependency property for <see cref="Header3Margin"/>.
         /// </summary>
-        public static readonly DependencyProperty Header3MarginProperty = DependencyProperty.Register(
-            nameof(Header3Margin),
-            typeof(Thickness),
-            typeof(MarkdownTextBlock),
-            new PropertyMetadata(new Thickness(), OnPropertyChangedStatic));
+        public static readonly DependencyProperty Header3MarginProperty =
+            DependencyProperty.Register(
+                nameof(Header3Margin),
+                typeof(Thickness),
+                typeof(MarkdownTextBlock),
+                new PropertyMetadata(new Thickness(), OnPropertyChangedStatic));
 
         /// <summary>
         /// Gets the dependency property for <see cref="Header4FontSize"/>.
         /// </summary>
-        public static readonly DependencyProperty Header4FontSizeProperty = DependencyProperty.Register(
-            nameof(Header4FontSize),
-            typeof(double),
-            typeof(MarkdownTextBlock),
-            new PropertyMetadata(OnPropertyChangedStatic));
+        public static readonly DependencyProperty Header4FontSizeProperty =
+            DependencyProperty.Register(
+                nameof(Header4FontSize),
+                typeof(double),
+                typeof(MarkdownTextBlock),
+                new PropertyMetadata(OnPropertyChangedStatic));
 
         /// <summary>
         /// Gets the dependency property for <see cref="Header4Margin"/>.
         /// </summary>
-        public static readonly DependencyProperty Header4MarginProperty = DependencyProperty.Register(
-            nameof(Header4Margin),
-            typeof(Thickness),
-            typeof(MarkdownTextBlock),
-            new PropertyMetadata(OnPropertyChangedStatic));
+        public static readonly DependencyProperty Header4MarginProperty =
+            DependencyProperty.Register(
+                nameof(Header4Margin),
+                typeof(Thickness),
+                typeof(MarkdownTextBlock),
+                new PropertyMetadata(OnPropertyChangedStatic));
 
         /// <summary>
         /// Gets the dependency property for <see cref="Header5FontSize"/>.
         /// </summary>
-        public static readonly DependencyProperty Header5FontSizeProperty = DependencyProperty.Register(
-            nameof(Header5FontSize),
-            typeof(double),
-            typeof(MarkdownTextBlock),
-            new PropertyMetadata(OnPropertyChangedStatic));
+        public static readonly DependencyProperty Header5FontSizeProperty =
+            DependencyProperty.Register(
+                nameof(Header5FontSize),
+                typeof(double),
+                typeof(MarkdownTextBlock),
+                new PropertyMetadata(OnPropertyChangedStatic));
 
         /// <summary>
         /// Gets the dependency property for <see cref="Header5Margin"/>.
         /// </summary>
-        public static readonly DependencyProperty Header5MarginProperty = DependencyProperty.Register(
-            nameof(Header5Margin),
-            typeof(Thickness),
-            typeof(MarkdownTextBlock),
-            new PropertyMetadata(OnPropertyChangedStatic));
+        public static readonly DependencyProperty Header5MarginProperty =
+            DependencyProperty.Register(
+                nameof(Header5Margin),
+                typeof(Thickness),
+                typeof(MarkdownTextBlock),
+                new PropertyMetadata(OnPropertyChangedStatic));
 
         /// <summary>
         /// Gets the dependency property for <see cref="Header6Margin"/>.
         /// </summary>
-        public static readonly DependencyProperty Header6MarginProperty = DependencyProperty.Register(
-            nameof(Header6Margin),
-            typeof(Thickness),
-            typeof(MarkdownTextBlock),
-            new PropertyMetadata(OnPropertyChangedStatic));
+        public static readonly DependencyProperty Header6MarginProperty =
+            DependencyProperty.Register(
+                nameof(Header6Margin),
+                typeof(Thickness),
+                typeof(MarkdownTextBlock),
+                new PropertyMetadata(OnPropertyChangedStatic));
 
         /// <summary>
         /// Gets the dependency property for <see cref="Header6FontSize"/>.
         /// </summary>
-        public static readonly DependencyProperty Header6FontSizeProperty = DependencyProperty.Register(
-            nameof(Header6FontSize),
-            typeof(double),
-            typeof(MarkdownTextBlock),
-            new PropertyMetadata(OnPropertyChangedStatic));
+        public static readonly DependencyProperty Header6FontSizeProperty =
+            DependencyProperty.Register(
+                nameof(Header6FontSize),
+                typeof(double),
+                typeof(MarkdownTextBlock),
+                new PropertyMetadata(OnPropertyChangedStatic));
 
         /// <summary>
         /// Gets the dependency property for <see cref="HorizontalRuleMargin"/>.
         /// </summary>
-        public static readonly DependencyProperty HorizontalRuleMarginProperty = DependencyProperty.Register(
-            nameof(HorizontalRuleMargin),
-            typeof(Thickness),
-            typeof(MarkdownTextBlock),
-            new PropertyMetadata(OnPropertyChangedStatic));
+        public static readonly DependencyProperty HorizontalRuleMarginProperty =
+            DependencyProperty.Register(
+                nameof(HorizontalRuleMargin),
+                typeof(Thickness),
+                typeof(MarkdownTextBlock),
+                new PropertyMetadata(OnPropertyChangedStatic));
 
         /// <summary>
         /// Gets the dependency property for <see cref="HorizontalRuleThickness"/>.
         /// </summary>
-        public static readonly DependencyProperty HorizontalRuleThicknessProperty = DependencyProperty.Register(
-            nameof(HorizontalRuleThickness),
-            typeof(double),
-            typeof(MarkdownTextBlock),
-            new PropertyMetadata(OnPropertyChangedStatic));
+        public static readonly DependencyProperty HorizontalRuleThicknessProperty =
+            DependencyProperty.Register(
+                nameof(HorizontalRuleThickness),
+                typeof(double),
+                typeof(MarkdownTextBlock),
+                new PropertyMetadata(OnPropertyChangedStatic));
 
         /// <summary>
         /// Gets the dependency property for <see cref="ListMargin"/>.
         /// </summary>
-        public static readonly DependencyProperty ListMarginProperty = DependencyProperty.Register(
-            nameof(ListMargin),
-            typeof(Thickness),
-            typeof(MarkdownTextBlock),
-            new PropertyMetadata(OnPropertyChangedStatic));
+        public static readonly DependencyProperty ListMarginProperty =
+            DependencyProperty.Register(
+                nameof(ListMargin),
+                typeof(Thickness),
+                typeof(MarkdownTextBlock),
+                new PropertyMetadata(OnPropertyChangedStatic));
 
         /// <summary>
         /// Gets the dependency property for <see cref="ListBulletSpacing"/>.
         /// </summary>
-        public static readonly DependencyProperty ListBulletSpacingProperty = DependencyProperty.Register(
-            nameof(ListBulletSpacing),
-            typeof(double),
-            typeof(MarkdownTextBlock),
-            new PropertyMetadata(OnPropertyChangedStatic));
+        public static readonly DependencyProperty ListBulletSpacingProperty =
+            DependencyProperty.Register(
+                nameof(ListBulletSpacing),
+                typeof(double),
+                typeof(MarkdownTextBlock),
+                new PropertyMetadata(OnPropertyChangedStatic));
 
         /// <summary>
         /// Gets the dependency property for <see cref="ParagraphMargin"/>.
         /// </summary>
-        public static readonly DependencyProperty ParagraphMarginProperty = DependencyProperty.Register(
-            nameof(ParagraphMargin),
-            typeof(Thickness),
-            typeof(MarkdownTextBlock),
-            new PropertyMetadata(OnPropertyChangedStatic));
+        public static readonly DependencyProperty ParagraphMarginProperty =
+            DependencyProperty.Register(
+                nameof(ParagraphMargin),
+                typeof(Thickness),
+                typeof(MarkdownTextBlock),
+                new PropertyMetadata(OnPropertyChangedStatic));
 
         /// <summary>
         /// Gets the dependency property for <see cref="ParagraphLineHeight"/>.
         /// </summary>
-        public static readonly DependencyProperty ParagraphLineHeightProperty = DependencyProperty.Register(
-            nameof(ParagraphLineHeight),
-            typeof(int),
-            typeof(MarkdownTextBlock),
-            new PropertyMetadata(OnPropertyChangedStatic));
+        public static readonly DependencyProperty ParagraphLineHeightProperty =
+            DependencyProperty.Register(
+                nameof(ParagraphLineHeight),
+                typeof(int),
+                typeof(MarkdownTextBlock),
+                new PropertyMetadata(OnPropertyChangedStatic));
 
         /// <summary>
         /// Gets the dependency property for <see cref="QuoteBorderThickness"/>.
         /// </summary>
-        public static readonly DependencyProperty QuoteBorderThicknessProperty = DependencyProperty.Register(
-            nameof(QuoteBorderThickness),
-            typeof(Thickness),
-            typeof(MarkdownTextBlock),
-            new PropertyMetadata(OnPropertyChangedStatic));
+        public static readonly DependencyProperty QuoteBorderThicknessProperty =
+            DependencyProperty.Register(
+                nameof(QuoteBorderThickness),
+                typeof(Thickness),
+                typeof(MarkdownTextBlock),
+                new PropertyMetadata(OnPropertyChangedStatic));
 
         /// <summary>
         /// Gets the dependency property for <see cref="QuoteMargin"/>.
         /// </summary>
-        public static readonly DependencyProperty QuoteMarginProperty = DependencyProperty.Register(
-            nameof(QuoteMargin),
-            typeof(Thickness),
-            typeof(MarkdownTextBlock),
-            new PropertyMetadata(OnPropertyChangedStatic));
+        public static readonly DependencyProperty QuoteMarginProperty =
+            DependencyProperty.Register(
+                nameof(QuoteMargin),
+                typeof(Thickness),
+                typeof(MarkdownTextBlock),
+                new PropertyMetadata(OnPropertyChangedStatic));
 
         /// <summary>
         /// Gets the dependency property for <see cref="QuotePadding"/>.
         /// </summary>
-        public static readonly DependencyProperty QuotePaddingProperty = DependencyProperty.Register(
-            nameof(QuotePadding),
-            typeof(Thickness),
-            typeof(MarkdownTextBlock),
-            new PropertyMetadata(OnPropertyChangedStatic));
+        public static readonly DependencyProperty QuotePaddingProperty =
+            DependencyProperty.Register(
+                nameof(QuotePadding),
+                typeof(Thickness),
+                typeof(MarkdownTextBlock),
+                new PropertyMetadata(OnPropertyChangedStatic));
 
         /// <summary>
         /// Gets the dependency property for <see cref="YamlBorderThickness"/>.
         /// </summary>
-        public static readonly DependencyProperty YamlBorderThicknessProperty = DependencyProperty.Register(
-            nameof(YamlBorderThickness),
-            typeof(double),
-            typeof(MarkdownTextBlock),
-            new PropertyMetadata(OnPropertyChangedStatic));
+        public static readonly DependencyProperty YamlBorderThicknessProperty =
+            DependencyProperty.Register(
+                nameof(YamlBorderThickness),
+                typeof(double),
+                typeof(MarkdownTextBlock),
+                new PropertyMetadata(OnPropertyChangedStatic));
 
         /// <summary>
         /// Gets the dependency property for <see cref="TableBorderThickness"/>.
         /// </summary>
-        public static readonly DependencyProperty TableBorderThicknessProperty = DependencyProperty.Register(
-            nameof(TableBorderThickness),
-            typeof(double),
-            typeof(MarkdownTextBlock),
-            new PropertyMetadata(OnPropertyChangedStatic));
+        public static readonly DependencyProperty TableBorderThicknessProperty =
+            DependencyProperty.Register(
+                nameof(TableBorderThickness),
+                typeof(double),
+                typeof(MarkdownTextBlock),
+                new PropertyMetadata(OnPropertyChangedStatic));
 
         /// <summary>
         /// Gets the dependency property for <see cref="TableCellPadding"/>.
         /// </summary>
-        public static readonly DependencyProperty TableCellPaddingProperty = DependencyProperty.Register(
-            nameof(TableCellPadding),
-            typeof(Thickness),
-            typeof(MarkdownTextBlock),
-            new PropertyMetadata(OnPropertyChangedStatic));
+        public static readonly DependencyProperty TableCellPaddingProperty =
+            DependencyProperty.Register(
+                nameof(TableCellPadding),
+                typeof(Thickness),
+                typeof(MarkdownTextBlock),
+                new PropertyMetadata(OnPropertyChangedStatic));
 
         /// <summary>
         /// Gets the dependency property for <see cref="TableMargin"/>.
         /// </summary>
-        public static readonly DependencyProperty TableMarginProperty = DependencyProperty.Register(
-            nameof(TableMargin),
-            typeof(Thickness),
-            typeof(MarkdownTextBlock),
-            new PropertyMetadata(OnPropertyChangedStatic));
+        public static readonly DependencyProperty TableMarginProperty =
+            DependencyProperty.Register(
+                nameof(TableMargin),
+                typeof(Thickness),
+                typeof(MarkdownTextBlock),
+                new PropertyMetadata(OnPropertyChangedStatic));
 
         /// <summary>
         /// Gets the dependency property for <see cref="ImageMaxHeight"/>
         /// </summary>
-        public static readonly DependencyProperty ImageMaxHeightProperty = DependencyProperty.Register(
-            nameof(ImageMaxHeight),
-            typeof(double),
-            typeof(MarkdownTextBlock),
-            new PropertyMetadata(OnPropertyChangedStatic));
+        public static readonly DependencyProperty ImageMaxHeightProperty =
+            DependencyProperty.Register(
+                nameof(ImageMaxHeight),
+                typeof(double),
+                typeof(MarkdownTextBlock),
+                new PropertyMetadata(OnPropertyChangedStatic));
 
         /// <summary>
         /// Gets the dependency property for <see cref="ImageMaxWidth"/>
         /// </summary>
-        public static readonly DependencyProperty ImageMaxWidthProperty = DependencyProperty.Register(
-            nameof(ImageMaxWidth),
-            typeof(double),
-            typeof(MarkdownTextBlock),
-            new PropertyMetadata(OnPropertyChangedStatic));
+        public static readonly DependencyProperty ImageMaxWidthProperty =
+            DependencyProperty.Register(
+                nameof(ImageMaxWidth),
+                typeof(double),
+                typeof(MarkdownTextBlock),
+                new PropertyMetadata(OnPropertyChangedStatic));
 
         /// <summary>
         /// Gets or sets the MaxWidth for images.

@@ -128,7 +128,6 @@ namespace ModernWpf.Toolkit.UI.Controls.Markdown.Render
 
             for (int i = 0; i < element.Children.Count; i++)
             {
-
                 var keypara = new Paragraph(new Run(childrenKeys[i]))
                 {
                     Foreground = Foreground,
@@ -258,7 +257,6 @@ namespace ModernWpf.Toolkit.UI.Controls.Markdown.Render
                 Margin = ListMargin,
                 Foreground = localContext.Foreground
             };
-
 
             list.MarkerStyle = element.Style switch
             {

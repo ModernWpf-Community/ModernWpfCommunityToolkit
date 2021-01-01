@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFrameworks>net5.0-windows10.0.18362.0;netcoreapp3.1;net462</TargetFrameworks>
     <UseWPF>true</UseWPF>
-    <LangVersion>8.0</LangVersion>
+    <LangVersion>latest</LangVersion>
     <Title>ModernWpf Community Toolkit Controls</Title>
     <Description>
       This library provides XAML templated controls. It is part of the ModernWpf Community Toolkit.
@@ -11,18 +11,6 @@
     <PackageTags>WPF ModernWpf Windows Controls XAML</PackageTags>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Page Remove="Properties\DesignTimeResources.xaml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="Properties\DesignTimeResources.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-      <ContainsDesignTimeResources>True</ContainsDesignTimeResources>
-    </None>
-  </ItemGroup>
-  
   <ItemGroup>
     <ProjectReference Include="..\ModernWpf.Toolkit.UI\ModernWpf.Toolkit.UI.csproj" />
   </ItemGroup>

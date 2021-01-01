@@ -2,20 +2,20 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 // See the LICENSE file in the project root for more information.
 
+using ColorCode;
+using Microsoft.Toolkit.Parsers.Markdown;
+using ModernWpf.Controls;
+using ModernWpf.Toolkit.UI.Controls.Markdown.Inlines;
+using ModernWpf.Toolkit.UI.Controls.Markdown.Render;
 using System;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using ModernWpf.Toolkit.UI.Controls.Markdown.Render;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using Microsoft.Toolkit.Parsers.Markdown;
-using ColorCode;
-using ModernWpf.Controls;
-using ModernWpf.Toolkit.UI.Controls.Markdown.Inlines;
 
 namespace ModernWpf.Toolkit.UI.Controls
 {
@@ -235,7 +235,6 @@ namespace ModernWpf.Toolkit.UI.Controls
         /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
         async Task<ImageSource> IImageResolver.ResolveImageAsync(string url, string tooltip)
         {
-
             if (!Uri.TryCreate(url, UriKind.Absolute, out Uri uri))
             {
                 if (!string.IsNullOrEmpty(UriPrefix))

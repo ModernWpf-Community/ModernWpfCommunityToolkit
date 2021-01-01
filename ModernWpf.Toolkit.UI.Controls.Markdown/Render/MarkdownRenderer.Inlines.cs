@@ -50,7 +50,6 @@ namespace ModernWpf.Toolkit.UI.Controls.Markdown.Render
 
             inlineCollection.InsertAfter(emoji, resolvedInline);
             inlineCollection.Remove(emoji);
-
         }
 
         /// <summary>

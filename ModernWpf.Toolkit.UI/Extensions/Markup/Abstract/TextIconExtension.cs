@@ -2,6 +2,7 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 // See the LICENSE file in the project root for more information.
 
+using System;
 using System.Windows;
 using System.Windows.Markup;
 using System.Windows.Media;
@@ -18,6 +19,17 @@ namespace ModernWpf.Toolkit.UI.Extensions
         /// </summary>
         public double FontSize { get; set; }
 
+        [ThreadStatic]
+        private static FontFamily segoeMDL2AssetsFontFamily;
+
+        /// <summary>
+        /// Gets the reusable "Segoe MDL2 Assets" <see cref="FontFamily"/> instance.
+        /// </summary>
+        protected static FontFamily SegoeMDL2AssetsFontFamily
+        {
+            get => segoeMDL2AssetsFontFamily ??= new FontFamily("Segoe MDL2 Assets");
+        }
+
         /// <summary>
         /// Gets or sets the thickness of the icon glyph.
         /// </summary>
@@ -32,15 +44,5 @@ namespace ModernWpf.Toolkit.UI.Extensions
         /// Gets or sets the foreground <see cref="Brush"/> for the icon.
         /// </summary>
         public Brush Foreground { get; set; }
-
-        /// <summary>
-        /// Gets or sets a value indicating whether automatic text enlargement, to reflect the system text size setting, is enabled.
-        /// </summary>
-        public bool IsTextScaleFactorEnabled { get; set; }
-
-        /// <summary>
-        /// Gets or sets a value indicating whether the icon is mirrored when the flow direction is right to left.
-        /// </summary>
-        public bool MirroredWhenRightToLeft { get; set; }
     }
 }

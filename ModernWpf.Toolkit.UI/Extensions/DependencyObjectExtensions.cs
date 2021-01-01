@@ -9,23 +9,14 @@ namespace ModernWpf.Toolkit.UI.Extensions
     {
         private static Dictionary<long, (DependencyPropertyDescriptor Descriptor, EventHandler Handler)> descriptors = new Dictionary<long, (DependencyPropertyDescriptor Descriptor, EventHandler Handler)>();
 
-        public static long RegisterPropertyChangedCallback(this DependencyObject dependencyObject, DependencyProperty dependencyProperty, PropertyChangedCallback callback)
+        public static long RegisterPropertyChangedCallback(this DependencyObject dependencyObject, DependencyProperty dependencyProperty, DependencyPropertyChangedCallback callback)
         {
-            long token = new Random().Next(0, int.MaxValue);
+            long token = descriptors.Count + 1;
             var descriptor = DependencyPropertyDescriptor.FromProperty(dependencyProperty, dependencyObject.GetType());
-
-            var oldValue = dependencyObject.GetValue(dependencyProperty);
             EventHandler handler = (s, e) =>
             {
-                var newValue = dependencyObject.GetValue(dependencyProperty);
-                callback.Invoke(dependencyObject, new DependencyPropertyChangedEventArgs(dependencyProperty, oldValue, newValue));
-                oldValue = newValue;
+                callback.Invoke(dependencyObject, dependencyProperty);
             };
-
-            while (descriptors.ContainsKey(token))
-            {
-                token += 1;
-            }
 
             descriptors.Add(token, (descriptor, handler));
 

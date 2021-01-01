@@ -152,7 +152,6 @@ namespace ModernWpf.Toolkit.UI.Extensions
                         yield return child as T;
                     }
 
-
                     if (child is FrameworkElement childFrameworkElement)
                     {
                         foreach (T childOfChild in childFrameworkElement.FindChildren<T>())
@@ -183,7 +182,6 @@ namespace ModernWpf.Toolkit.UI.Extensions
                 {
                     yield return content as T;
                 }
-
 
                 if (content is FrameworkElement childFrameworkElement)
                 {

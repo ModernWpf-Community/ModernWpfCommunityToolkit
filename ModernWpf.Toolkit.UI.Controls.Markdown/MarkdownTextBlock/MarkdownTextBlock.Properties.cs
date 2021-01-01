@@ -2,13 +2,13 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 // See the LICENSE file in the project root for more information.
 
+using ColorCode.Styling;
+using ModernWpf.Toolkit.UI.Controls.Markdown.Render;
 using System;
 using System.Collections.Generic;
-using ModernWpf.Toolkit.UI.Controls.Markdown.Render;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using ColorCode.Styling;
 
 namespace ModernWpf.Toolkit.UI.Controls
 {
@@ -19,205 +19,235 @@ namespace ModernWpf.Toolkit.UI.Controls
     {
         // Used to attach the URL to hyperlinks.
         private static readonly DependencyProperty HyperlinkUrlProperty =
-            DependencyProperty.RegisterAttached("HyperlinkUrl", typeof(string), typeof(MarkdownTextBlock), new PropertyMetadata(null));
+            DependencyProperty.RegisterAttached(
+                "HyperlinkUrl",
+                typeof(string),
+                typeof(MarkdownTextBlock),
+                new PropertyMetadata(null));
 
         // Checkes if clicked image is a hyperlink or not.
         private static readonly DependencyProperty IsHyperlinkProperty =
-            DependencyProperty.RegisterAttached("IsHyperLink", typeof(bool), typeof(MarkdownTextBlock), new PropertyMetadata(null));
+            DependencyProperty.RegisterAttached(
+                "IsHyperLink",
+                typeof(bool),
+                typeof(MarkdownTextBlock),
+                new PropertyMetadata(null));
 
         /// <summary>
         /// Gets the dependency property for <see cref="CodeStyling"/>.
         /// </summary>
-        public static readonly DependencyProperty CodeStylingProperty = DependencyProperty.Register(
-            nameof(CodeStyling),
-            typeof(StyleDictionary),
-            typeof(MarkdownTextBlock),
-            new PropertyMetadata(null, OnPropertyChangedStatic));
+        public static readonly DependencyProperty CodeStylingProperty =
+            DependencyProperty.Register(
+                nameof(CodeStyling),
+                typeof(StyleDictionary),
+                typeof(MarkdownTextBlock),
+                new PropertyMetadata(null, OnPropertyChangedStatic));
 
         /// <summary>
         /// Gets the dependency property for <see cref="UseSyntaxHighlighting"/>.
         /// </summary>
-        public static readonly DependencyProperty UseSyntaxHighlightingProperty = DependencyProperty.Register(
-            nameof(UseSyntaxHighlighting),
-            typeof(bool),
-            typeof(MarkdownTextBlock),
-            new PropertyMetadata(true, OnPropertyChangedStatic));
+        public static readonly DependencyProperty UseSyntaxHighlightingProperty =
+            DependencyProperty.Register(
+                nameof(UseSyntaxHighlighting),
+                typeof(bool),
+                typeof(MarkdownTextBlock),
+                new PropertyMetadata(true, OnPropertyChangedStatic));
 
         /// <summary>
         /// Gets the dependency property for <see cref="Text"/>.
         /// </summary>
-        public static readonly DependencyProperty TextProperty = DependencyProperty.Register(
-            nameof(Text),
-            typeof(string),
-            typeof(MarkdownTextBlock),
-            new PropertyMetadata(string.Empty, OnPropertyChangedStatic));
+        public static readonly DependencyProperty TextProperty =
+            DependencyProperty.Register(
+                nameof(Text),
+                typeof(string),
+                typeof(MarkdownTextBlock),
+                new PropertyMetadata(string.Empty, OnPropertyChangedStatic));
 
         /// <summary>
         /// Gets the dependency property for <see cref="InlineCodeBackground"/>.
         /// </summary>
-        public static readonly DependencyProperty InlineCodeBackgroundProperty = DependencyProperty.Register(
-            nameof(InlineCodeBackground),
-            typeof(Brush),
-            typeof(MarkdownTextBlock),
-            new PropertyMetadata(null, OnPropertyChangedStatic));
+        public static readonly DependencyProperty InlineCodeBackgroundProperty =
+            DependencyProperty.Register(
+                nameof(InlineCodeBackground),
+                typeof(Brush),
+                typeof(MarkdownTextBlock),
+                new PropertyMetadata(null, OnPropertyChangedStatic));
 
         /// <summary>
         /// Gets the dependency property for <see cref="InlineCodeForeground"/>.
         /// </summary>
-        public static readonly DependencyProperty InlineCodeForegroundProperty = DependencyProperty.Register(
-            nameof(InlineCodeForeground),
-            typeof(Brush),
-            typeof(MarkdownTextBlock),
-            new PropertyMetadata(null, OnPropertyChangedStatic));
+        public static readonly DependencyProperty InlineCodeForegroundProperty =
+            DependencyProperty.Register(
+                nameof(InlineCodeForeground),
+                typeof(Brush),
+                typeof(MarkdownTextBlock),
+                new PropertyMetadata(null, OnPropertyChangedStatic));
 
         /// <summary>
         /// Gets the dependency property for <see cref="InlineCodeBorderBrush"/>.
         /// </summary>
-        public static readonly DependencyProperty InlineCodeBorderBrushProperty = DependencyProperty.Register(
-            nameof(InlineCodeBorderBrush),
-            typeof(Brush),
-            typeof(MarkdownTextBlock),
-            new PropertyMetadata(null, OnPropertyChangedStatic));
+        public static readonly DependencyProperty InlineCodeBorderBrushProperty =
+            DependencyProperty.Register(
+                nameof(InlineCodeBorderBrush),
+                typeof(Brush),
+                typeof(MarkdownTextBlock),
+                new PropertyMetadata(null, OnPropertyChangedStatic));
 
         /// <summary>
         /// Gets the dependency property for <see cref="IsTextSelectionEnabled"/>.
         /// </summary>
-        public static readonly DependencyProperty IsTextSelectionEnabledProperty = DependencyProperty.Register(
-            nameof(IsTextSelectionEnabled),
-            typeof(bool),
-            typeof(MarkdownTextBlock),
-            new PropertyMetadata(true, OnPropertyChangedStatic));
+        public static readonly DependencyProperty IsTextSelectionEnabledProperty =
+            DependencyProperty.Register(
+                nameof(IsTextSelectionEnabled),
+                typeof(bool),
+                typeof(MarkdownTextBlock),
+                new PropertyMetadata(true, OnPropertyChangedStatic));
 
         /// <summary>
         /// Gets the dependency property for <see cref="LinkForeground"/>.
         /// </summary>
-        public static readonly DependencyProperty LinkForegroundProperty = DependencyProperty.Register(
-            nameof(LinkForeground),
-            typeof(Brush),
-            typeof(MarkdownTextBlock),
-            new PropertyMetadata(null, OnPropertyChangedStatic));
+        public static readonly DependencyProperty LinkForegroundProperty =
+            DependencyProperty.Register(
+                nameof(LinkForeground),
+                typeof(Brush),
+                typeof(MarkdownTextBlock),
+                new PropertyMetadata(null, OnPropertyChangedStatic));
 
         /// <summary>
         /// Gets the dependency property for <see cref="CodeBackground"/>.
         /// </summary>
-        public static readonly DependencyProperty CodeBackgroundProperty = DependencyProperty.Register(
-            nameof(CodeBackground),
-            typeof(Brush),
-            typeof(MarkdownTextBlock),
-            new PropertyMetadata(null, OnPropertyChangedStatic));
+        public static readonly DependencyProperty CodeBackgroundProperty =
+            DependencyProperty.Register(
+                nameof(CodeBackground),
+                typeof(Brush),
+                typeof(MarkdownTextBlock),
+                new PropertyMetadata(null, OnPropertyChangedStatic));
 
         /// <summary>
         /// Gets the dependency property for <see cref="CodeBorderBrush"/>.
         /// </summary>
-        public static readonly DependencyProperty CodeBorderBrushProperty = DependencyProperty.Register(
-            nameof(CodeBorderBrush),
-            typeof(Brush),
-            typeof(MarkdownTextBlock),
-            new PropertyMetadata(null, OnPropertyChangedStatic));
+        public static readonly DependencyProperty CodeBorderBrushProperty =
+            DependencyProperty.Register(
+                nameof(CodeBorderBrush),
+                typeof(Brush),
+                typeof(MarkdownTextBlock),
+                new PropertyMetadata(null, OnPropertyChangedStatic));
 
         /// <summary>
         /// Gets the dependency property for <see cref="CodeForeground"/>.
         /// </summary>
-        public static readonly DependencyProperty CodeForegroundProperty = DependencyProperty.Register(
-            nameof(CodeForeground),
-            typeof(Brush),
-            typeof(MarkdownTextBlock),
-            new PropertyMetadata(null, OnPropertyChangedStatic));
+        public static readonly DependencyProperty CodeForegroundProperty =
+            DependencyProperty.Register(
+                nameof(CodeForeground),
+                typeof(Brush),
+                typeof(MarkdownTextBlock),
+                new PropertyMetadata(null, OnPropertyChangedStatic));
 
         /// <summary>
         /// Gets the dependency property for <see cref="CodeFontFamily"/>.
         /// </summary>
-        public static readonly DependencyProperty CodeFontFamilyProperty = DependencyProperty.Register(
-            nameof(CodeFontFamily),
-            typeof(FontFamily),
-            typeof(MarkdownTextBlock),
-            new PropertyMetadata(null, OnPropertyChangedStatic));
+        public static readonly DependencyProperty CodeFontFamilyProperty =
+            DependencyProperty.Register(
+                nameof(CodeFontFamily),
+                typeof(FontFamily),
+                typeof(MarkdownTextBlock),
+                new PropertyMetadata(null, OnPropertyChangedStatic));
 
         /// <summary>
         /// Gets the dependency property for <see cref="InlineCodeFontFamily"/>.
         /// </summary>
-        public static readonly DependencyProperty InlineCodeFontFamilyProperty = DependencyProperty.Register(
-            nameof(InlineCodeFontFamily),
-            typeof(FontFamily),
-            typeof(MarkdownTextBlock),
-            new PropertyMetadata(null, OnPropertyChangedStatic));
+        public static readonly DependencyProperty InlineCodeFontFamilyProperty =
+            DependencyProperty.Register(
+                nameof(InlineCodeFontFamily),
+                typeof(FontFamily),
+                typeof(MarkdownTextBlock),
+                new PropertyMetadata(null, OnPropertyChangedStatic));
 
         /// <summary>
         /// Gets the dependency property for <see cref="EmojiFontFamily"/>.
         /// </summary>
-        public static readonly DependencyProperty EmojiFontFamilyProperty = DependencyProperty.Register(
-            nameof(EmojiFontFamily),
-            typeof(FontFamily),
-            typeof(MarkdownTextBlock),
-            new PropertyMetadata(null, OnPropertyChangedStatic));
+        public static readonly DependencyProperty EmojiFontFamilyProperty =
+            DependencyProperty.Register(
+                nameof(EmojiFontFamily),
+                typeof(FontFamily),
+                typeof(MarkdownTextBlock),
+                new PropertyMetadata(null, OnPropertyChangedStatic));
 
         /// <summary>
         /// Gets the dependency property for <see cref="Header1FontWeight"/>.
         /// </summary>
-        public static readonly DependencyProperty Header1FontWeightProperty = DependencyProperty.Register(
-            nameof(Header1FontWeight),
-            typeof(FontWeight),
-            typeof(MarkdownTextBlock),
-            new PropertyMetadata(FontWeights.Black, OnPropertyChangedStatic));
+        public static readonly DependencyProperty Header1FontWeightProperty =
+            DependencyProperty.Register(
+                nameof(Header1FontWeight),
+                typeof(FontWeight),
+                typeof(MarkdownTextBlock),
+                new PropertyMetadata(FontWeights.Black, OnPropertyChangedStatic));
 
         /// <summary>
         /// Gets the dependency property for <see cref="Header1Foreground"/>.
         /// </summary>
-        public static readonly DependencyProperty Header1ForegroundProperty = DependencyProperty.Register(
-            nameof(Header1Foreground),
-            typeof(Brush),
-            typeof(MarkdownTextBlock),
-            new PropertyMetadata(null, OnPropertyChangedStatic));
+        public static readonly DependencyProperty Header1ForegroundProperty =
+            DependencyProperty.Register(
+                nameof(Header1Foreground),
+                typeof(Brush),
+                typeof(MarkdownTextBlock),
+                new PropertyMetadata(null, OnPropertyChangedStatic));
 
         /// <summary>
         /// Gets the dependency property for <see cref="Header2FontWeight"/>.
         /// </summary>
-        public static readonly DependencyProperty Header2FontWeightProperty = DependencyProperty.Register(
-            nameof(Header2FontWeight),
-            typeof(FontWeight),
-            typeof(MarkdownTextBlock),
-            new PropertyMetadata(FontWeights.Normal, OnPropertyChangedStatic));
+        public static readonly DependencyProperty Header2FontWeightProperty =
+            DependencyProperty.Register(
+                nameof(Header2FontWeight),
+                typeof(FontWeight),
+                typeof(MarkdownTextBlock),
+                new PropertyMetadata(FontWeights.Normal, OnPropertyChangedStatic));
 
         /// <summary>
         /// Gets the dependency property for <see cref="Header2Foreground"/>.
         /// </summary>
-        public static readonly DependencyProperty Header2ForegroundProperty = DependencyProperty.Register(
-            nameof(Header2Foreground),
-            typeof(Brush),
-            typeof(MarkdownTextBlock),
-            new PropertyMetadata(null, OnPropertyChangedStatic));
+        public static readonly DependencyProperty Header2ForegroundProperty =
+            DependencyProperty.Register(
+                nameof(Header2Foreground),
+                typeof(Brush),
+                typeof(MarkdownTextBlock),
+                new PropertyMetadata(null, OnPropertyChangedStatic));
 
         /// <summary>
         /// Gets the dependency property for <see cref="Header3FontWeight"/>.
         /// </summary>
-        public static readonly DependencyProperty Header3FontWeightProperty = DependencyProperty.Register(
-            nameof(Header3FontWeight),
-            typeof(FontWeight),
-            typeof(MarkdownTextBlock),
-            new PropertyMetadata(FontWeights.Bold, OnPropertyChangedStatic));
+        public static readonly DependencyProperty Header3FontWeightProperty =
+            DependencyProperty.Register(
+                nameof(Header3FontWeight),
+                typeof(FontWeight),
+                typeof(MarkdownTextBlock),
+                new PropertyMetadata(FontWeights.Bold, OnPropertyChangedStatic));
 
         /// <summary>
         /// Gets the dependency property for <see cref="Header3Foreground"/>.
         /// </summary>
-        public static readonly DependencyProperty Header3ForegroundProperty = DependencyProperty.Register(
-            nameof(Header3Foreground),
-            typeof(Brush),
-            typeof(MarkdownTextBlock),
-            new PropertyMetadata(null, OnPropertyChangedStatic));
+        public static readonly DependencyProperty Header3ForegroundProperty =
+            DependencyProperty.Register(
+                nameof(Header3Foreground),
+                typeof(Brush),
+                typeof(MarkdownTextBlock),
+                new PropertyMetadata(null, OnPropertyChangedStatic));
 
         /// <summary>
         /// Gets the dependency property for <see cref="Header4FontWeight"/>.
         /// </summary>
-        public static readonly DependencyProperty Header4FontWeightProperty = DependencyProperty.Register(
-            nameof(Header4FontWeight),
-            typeof(FontWeight),
-            typeof(MarkdownTextBlock),
-            new PropertyMetadata(FontWeights.Normal, OnPropertyChangedStatic));
+        public static readonly DependencyProperty Header4FontWeightProperty =
+            DependencyProperty.Register(
+                nameof(Header4FontWeight),
+                typeof(FontWeight),
+                typeof(MarkdownTextBlock),
+                new PropertyMetadata(FontWeights.Normal, OnPropertyChangedStatic));
 
         /// <summary>
         /// Gets the dependency property for <see cref="Header4Foreground"/>.
         /// </summary>
-        public static readonly DependencyProperty Header4ForegroundProperty = DependencyProperty.Register(
+        public static readonly DependencyProperty Header4ForegroundProperty =
+            DependencyProperty.Register(
             nameof(Header4Foreground),
             typeof(Brush),
             typeof(MarkdownTextBlock),
@@ -226,110 +256,122 @@ namespace ModernWpf.Toolkit.UI.Controls
         /// <summary>
         /// Gets the dependency property for <see cref="Header5FontWeight"/>.
         /// </summary>
-        public static readonly DependencyProperty Header5FontWeightProperty = DependencyProperty.Register(
-            nameof(Header5FontWeight),
-            typeof(FontWeight),
-            typeof(MarkdownTextBlock),
-            new PropertyMetadata(FontWeights.Bold, OnPropertyChangedStatic));
+        public static readonly DependencyProperty Header5FontWeightProperty =
+            DependencyProperty.Register(
+                nameof(Header5FontWeight),
+                typeof(FontWeight),
+                typeof(MarkdownTextBlock),
+                new PropertyMetadata(FontWeights.Bold, OnPropertyChangedStatic));
 
         /// <summary>
         /// Gets the dependency property for <see cref="Header5Foreground"/>.
         /// </summary>
-        public static readonly DependencyProperty Header5ForegroundProperty = DependencyProperty.Register(
-            nameof(Header5Foreground),
-            typeof(Brush),
-            typeof(MarkdownTextBlock),
-            new PropertyMetadata(null, OnPropertyChangedStatic));
+        public static readonly DependencyProperty Header5ForegroundProperty =
+            DependencyProperty.Register(
+                nameof(Header5Foreground),
+                typeof(Brush),
+                typeof(MarkdownTextBlock),
+                new PropertyMetadata(null, OnPropertyChangedStatic));
 
         /// <summary>
         /// Gets the dependency property for <see cref="Header6FontWeight"/>.
         /// </summary>
-        public static readonly DependencyProperty Header6FontWeightProperty = DependencyProperty.Register(
-            nameof(Header6FontWeight),
-            typeof(FontWeight),
-            typeof(MarkdownTextBlock),
-            new PropertyMetadata(FontWeights.Normal, OnPropertyChangedStatic));
+        public static readonly DependencyProperty Header6FontWeightProperty =
+            DependencyProperty.Register(
+                nameof(Header6FontWeight),
+                typeof(FontWeight),
+                typeof(MarkdownTextBlock),
+                new PropertyMetadata(FontWeights.Normal, OnPropertyChangedStatic));
 
         /// <summary>
         /// Gets the dependency property for <see cref="Header6Foreground"/>.
         /// </summary>
-        public static readonly DependencyProperty Header6ForegroundProperty = DependencyProperty.Register(
-            nameof(Header6Foreground),
-            typeof(Brush),
-            typeof(MarkdownTextBlock),
-            new PropertyMetadata(null, OnPropertyChangedStatic));
+        public static readonly DependencyProperty Header6ForegroundProperty =
+            DependencyProperty.Register(
+                nameof(Header6Foreground),
+                typeof(Brush),
+                typeof(MarkdownTextBlock),
+                new PropertyMetadata(null, OnPropertyChangedStatic));
 
         /// <summary>
         /// Gets the dependency property for <see cref="HorizontalRuleBrush"/>.
         /// </summary>
-        public static readonly DependencyProperty HorizontalRuleBrushProperty = DependencyProperty.Register(
-            nameof(HorizontalRuleBrush),
-            typeof(Brush),
-            typeof(MarkdownTextBlock),
-            new PropertyMetadata(null, OnPropertyChangedStatic));
+        public static readonly DependencyProperty HorizontalRuleBrushProperty =
+            DependencyProperty.Register(
+                nameof(HorizontalRuleBrush),
+                typeof(Brush),
+                typeof(MarkdownTextBlock),
+                new PropertyMetadata(null, OnPropertyChangedStatic));
 
         /// <summary>
         /// Gets the dependency property for <see cref="QuoteBackground"/>.
         /// </summary>
-        public static readonly DependencyProperty QuoteBackgroundProperty = DependencyProperty.Register(
-            nameof(QuoteBackground),
-            typeof(Brush),
-            typeof(MarkdownTextBlock),
-            new PropertyMetadata(null, OnPropertyChangedStatic));
+        public static readonly DependencyProperty QuoteBackgroundProperty =
+            DependencyProperty.Register(
+                nameof(QuoteBackground),
+                typeof(Brush),
+                typeof(MarkdownTextBlock),
+                new PropertyMetadata(null, OnPropertyChangedStatic));
 
         /// <summary>
         /// Gets the dependency property for <see cref="QuoteBorderBrush"/>.
         /// </summary>
-        public static readonly DependencyProperty QuoteBorderBrushProperty = DependencyProperty.Register(
-            nameof(QuoteBorderBrush),
-            typeof(Brush),
-            typeof(MarkdownTextBlock),
-            new PropertyMetadata(null, OnPropertyChangedStatic));
+        public static readonly DependencyProperty QuoteBorderBrushProperty =
+            DependencyProperty.Register(
+                nameof(QuoteBorderBrush),
+                typeof(Brush),
+                typeof(MarkdownTextBlock),
+                new PropertyMetadata(null, OnPropertyChangedStatic));
 
         /// <summary>
         /// Gets the dependency property for <see cref="QuoteForeground"/>.
         /// </summary>
-        public static readonly DependencyProperty QuoteForegroundProperty = DependencyProperty.Register(
-            nameof(QuoteForeground),
-            typeof(Brush),
-            typeof(MarkdownTextBlock),
-            new PropertyMetadata(null, OnPropertyChangedStatic));
+        public static readonly DependencyProperty QuoteForegroundProperty =
+            DependencyProperty.Register(
+                nameof(QuoteForeground),
+                typeof(Brush),
+                typeof(MarkdownTextBlock),
+                new PropertyMetadata(null, OnPropertyChangedStatic));
 
         /// <summary>
         /// Gets the dependency property for <see cref="TableBorderBrush"/>.
         /// </summary>
-        public static readonly DependencyProperty TableBorderBrushProperty = DependencyProperty.Register(
-            nameof(TableBorderBrush),
-            typeof(Brush),
-            typeof(MarkdownTextBlock),
-            new PropertyMetadata(null, OnPropertyChangedStatic));
+        public static readonly DependencyProperty TableBorderBrushProperty =
+            DependencyProperty.Register(
+                nameof(TableBorderBrush),
+                typeof(Brush),
+                typeof(MarkdownTextBlock),
+                new PropertyMetadata(null, OnPropertyChangedStatic));
 
         /// <summary>
         /// Gets the dependency property for <see cref="YamlBorderBrush"/>.
         /// </summary>
-        public static readonly DependencyProperty YamlBorderBrushProperty = DependencyProperty.Register(
-            nameof(YamlBorderBrush),
-            typeof(Brush),
-            typeof(MarkdownTextBlock),
-            new PropertyMetadata(null, OnPropertyChangedStatic));
+        public static readonly DependencyProperty YamlBorderBrushProperty =
+            DependencyProperty.Register(
+                nameof(YamlBorderBrush),
+                typeof(Brush),
+                typeof(MarkdownTextBlock),
+                new PropertyMetadata(null, OnPropertyChangedStatic));
 
         /// <summary>
         /// Gets the dependency property for <see cref="UriPrefix"/>.
         /// </summary>
-        public static readonly DependencyProperty UriPrefixProperty = DependencyProperty.Register(
-            nameof(UriPrefix),
-            typeof(string),
-            typeof(MarkdownTextBlock),
-            new PropertyMetadata(string.Empty, OnPropertyChangedStatic));
+        public static readonly DependencyProperty UriPrefixProperty =
+            DependencyProperty.Register(
+                nameof(UriPrefix),
+                typeof(string),
+                typeof(MarkdownTextBlock),
+                new PropertyMetadata(string.Empty, OnPropertyChangedStatic));
 
         /// <summary>
         /// Gets the dependency property for <see cref="UriPrefix"/>.
         /// </summary>
-        public static readonly DependencyProperty SchemeListProperty = DependencyProperty.Register(
-            nameof(SchemeList),
-            typeof(string),
-            typeof(MarkdownTextBlock),
-            new PropertyMetadata(string.Empty, OnPropertyChangedStatic));
+        public static readonly DependencyProperty SchemeListProperty =
+            DependencyProperty.Register(
+                nameof(SchemeList),
+                typeof(string),
+                typeof(MarkdownTextBlock),
+                new PropertyMetadata(string.Empty, OnPropertyChangedStatic));
 
         /// <summary>
         /// Gets or sets the markdown text to display.

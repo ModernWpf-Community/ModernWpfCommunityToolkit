@@ -4,7 +4,7 @@
     <OutputType>WinExe</OutputType>
     <TargetFrameworks>net5.0-windows10.0.18362.0;netcoreapp3.1;net462</TargetFrameworks>
     <UseWPF>true</UseWPF>
-    <LangVersion>8.0</LangVersion>
+    <LangVersion>latest</LangVersion>
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
 
@@ -21,7 +21,7 @@
   <ItemGroup>
     <Page Remove="Properties\DesignTimeResources.xaml" />
   </ItemGroup>
-  
+
   <ItemGroup>
     <None Include="Properties\DesignTimeResources.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -29,18 +29,24 @@
       <ContainsDesignTimeResources>True</ContainsDesignTimeResources>
     </None>
   </ItemGroup>
-  
+
   <ItemGroup>
     <PackageReference Include="Emoji.Wpf" Version="0.0.19-experimental" />
   </ItemGroup>
-  
+
   <ItemGroup>
     <ProjectReference Include="..\ModernWpf.Toolkit.UI.Controls.Markdown\ModernWpf.Toolkit.UI.Controls.Markdown.csproj" />
     <ProjectReference Include="..\ModernWpf.Toolkit.UI.Controls\ModernWpf.Toolkit.UI.Controls.csproj" />
   </ItemGroup>
-  
+
   <ItemGroup>
     <Resource Include="Assets\Photos\WestSeattleView.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="InitialContent.md">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

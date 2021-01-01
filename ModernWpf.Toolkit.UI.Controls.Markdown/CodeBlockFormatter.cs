@@ -1,12 +1,12 @@
-﻿using System.Collections.Generic;
-using System.Windows.Documents;
-using System.Windows;
-using System;
-using System.Windows.Media;
-using ColorCode;
+﻿using ColorCode;
+using ColorCode.Common;
 using ColorCode.Parsing;
 using ColorCode.Styling;
-using ColorCode.Common;
+using System;
+using System.Collections.Generic;
+using System.Windows;
+using System.Windows.Documents;
+using System.Windows.Media;
 
 namespace ModernWpf.Toolkit.UI.Controls
 {

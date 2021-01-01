@@ -3,24 +3,20 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:ui="http://schemas.modernwpf.com/2019" xmlns:controls="clr-namespace:ModernWpf.Toolkit.UI.Controls;assembly=ModernWpf.Toolkit.UI.Controls"
-        mc:Ignorable="d" ui:WindowHelper.UseModernWindowStyle="True"
+        xmlns:ui="http://schemas.modernwpf.com/2019"
+        xmlns:controls="http://schemas.modernwpf.com/toolkit/controls"
+        mc:Ignorable="d" ui:WindowHelper.UseModernWindowStyle="True" ui:ThemeManager.RequestedTheme="Dark"
         Title="MainWindow" Height="450" Width="800">
     <Grid Background="{DynamicResource SystemControlBackgroundChromeMediumBrush}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition />
+            <RowDefinition />
         </Grid.RowDefinitions>
-        <controls:EyedropperToolButton Grid.Row="0" HorizontalAlignment="Center" TargetElement="{Binding ElementName=Image}"/>
-        <Image Margin="20"  Grid.Row="1" x:Name="Image" Source="/Assets/Photos/WestSeattleView.jpg" />
-        <Button Content="Global Eyedropper" Click="Button_Click"/>
-        <Rectangle Stroke="{DynamicResource SystemControlBackgroundBaseHighBrush}" Margin="10" RadiusX="4" RadiusY="4" StrokeThickness="1" Width="20" Height="20" HorizontalAlignment="Right" ToolTip="{Binding ElementName=TargetSolidColorBrush, Path=Color}">
-            <Rectangle.Fill>
-                <SolidColorBrush x:Name="TargetSolidColorBrush"/>
-            </Rectangle.Fill>
-            <Rectangle.Effect>
-                <DropShadowEffect ShadowDepth="0" BlurRadius="10"/>
-            </Rectangle.Effect>
-        </Rectangle>
+        <TextBox x:Name="EditorBox" Grid.Row="0" FontSize="14" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto"/>
+        <controls:MarkdownTextBlock
+            x:Name="MDbox" Grid.Row="1"
+            UriPrefix="pack://application:,,," SchemeList="companyportal,randomscheme"
+            Header1Foreground="{DynamicResource SystemControlBackgroundAccentBrush}"
+            Text="{Binding ElementName=EditorBox, Path=Text, Mode=OneWay}"/>
     </Grid>
 </Window>

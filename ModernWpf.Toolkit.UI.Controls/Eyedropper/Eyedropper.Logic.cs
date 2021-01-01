@@ -116,7 +116,7 @@ namespace ModernWpf.Toolkit.UI.Controls
         }
 
         internal void UpdateAppScreenshot()
-        {            
+        {
             FrameworkElement content = (FrameworkElement)OwnerWindow.Content;
             int width = (int)Math.Ceiling(content.ActualWidth);
             int height = (int)Math.Ceiling(content.ActualHeight);

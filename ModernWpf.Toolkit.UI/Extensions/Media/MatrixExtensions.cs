@@ -123,38 +123,38 @@ namespace ModernWpf.Toolkit.UI.Extensions
             var dx = (centerX * (1.0 - cos)) + (centerY * sin);
             var dy = (centerY * (1.0 - cos)) - (centerX * sin);
 
-            #pragma warning disable SA1117 // Parameters must be on same line or separate lines
+#pragma warning disable SA1117 // Parameters must be on same line or separate lines
             return new Matrix(cos, sin,
                               -sin, cos,
                               dx, dy);
-            #pragma warning restore SA1117 // Parameters must be on same line or separate lines
+#pragma warning restore SA1117 // Parameters must be on same line or separate lines
         }
 
         internal static Matrix CreateScaling(double scaleX, double scaleY)
         {
-            #pragma warning disable SA1117 // Parameters must be on same line or separate lines
+#pragma warning disable SA1117 // Parameters must be on same line or separate lines
             return new Matrix(scaleX, 0,
                               0, scaleY,
                               0, 0);
-            #pragma warning restore SA1117 // Parameters must be on same line or separate lines
+#pragma warning restore SA1117 // Parameters must be on same line or separate lines
         }
 
         internal static Matrix CreateScaling(double scaleX, double scaleY, double centerX, double centerY)
         {
-            #pragma warning disable SA1117 // Parameters must be on same line or separate lines
+#pragma warning disable SA1117 // Parameters must be on same line or separate lines
             return new Matrix(scaleX, 0,
                               0, scaleY,
                               centerX - (scaleX * centerX), centerY - (scaleY * centerY));
-            #pragma warning restore SA1117 // Parameters must be on same line or separate lines
+#pragma warning restore SA1117 // Parameters must be on same line or separate lines
         }
 
         internal static Matrix CreateSkewRadians(double skewX, double skewY)
         {
-            #pragma warning disable SA1117 // Parameters must be on same line or separate lines
+#pragma warning disable SA1117 // Parameters must be on same line or separate lines
             return new Matrix(1.0, Math.Tan(skewY),
                               Math.Tan(skewX), 1.0,
                               0.0, 0.0);
-            #pragma warning restore SA1117 // Parameters must be on same line or separate lines
+#pragma warning restore SA1117 // Parameters must be on same line or separate lines
         }
     }
 }

@@ -18,7 +18,11 @@ namespace ModernWpf.Toolkit.UI.Helpers
         /// Identifies the <see cref="Value"/> property.
         /// </summary>
         public static readonly DependencyProperty ValueProperty =
-            DependencyProperty.Register(nameof(Value), typeof(object), typeof(BindableValueHolder), null);
+            DependencyProperty.Register(
+                nameof(Value),
+                typeof(object),
+                typeof(BindableValueHolder),
+                new PropertyMetadata());
 
         /// <summary>
         /// Gets or sets the held value.

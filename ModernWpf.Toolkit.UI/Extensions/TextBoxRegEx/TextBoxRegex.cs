@@ -73,18 +73,23 @@ namespace ModernWpf.Toolkit.UI.Extensions
 
                     regexMatch = Regex.IsMatch(textBox.Text, regex);
                     break;
+
                 case ValidationType.Decimal:
                     regexMatch = textBox.Text.IsDecimal();
                     break;
+
                 case ValidationType.Email:
                     regexMatch = textBox.Text.IsEmail();
                     break;
+
                 case ValidationType.Number:
                     regexMatch = textBox.Text.IsNumeric();
                     break;
+
                 case ValidationType.PhoneNumber:
                     regexMatch = textBox.Text.IsPhoneNumber();
                     break;
+
                 case ValidationType.Characters:
                     regexMatch = textBox.Text.IsCharacterString();
                     break;

@@ -3,9 +3,9 @@
 // See the LICENSE file in the project root for more information.
 
 using ModernWpf.Toolkit.UI.Controls.Markdown.Render;
+using ModernWpf.Toolkit.UI.Extensions;
 using System.Windows;
 using System.Windows.Controls;
-using ModernWpf.Toolkit.UI.Extensions;
 
 namespace ModernWpf.Toolkit.UI.Controls
 {

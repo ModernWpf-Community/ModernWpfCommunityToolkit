@@ -5,33 +5,27 @@
 using ModernWpf.Controls;
 using System;
 using System.Windows.Markup;
-using System.Windows.Media;
 
 namespace ModernWpf.Toolkit.UI.Extensions
 {
     /// <summary>
-    /// Custom <see cref="MarkupExtension"/> which can provide <see cref="FontIcon"/> values.
+    /// Custom <see cref="MarkupExtension"/> which can provide symbol-based <see cref="FontIconSource"/> values.
     /// </summary>
-    [MarkupExtensionReturnType(typeof(FontIcon))]
-    public class FontIconExtension : TextIconExtension
+    [MarkupExtensionReturnType(typeof(FontIconSource))]
+    public class SymbolIconSourceExtension : TextIconExtension
     {
         /// <summary>
-        /// Gets or sets the <see cref="string"/> value representing the icon to display.
+        /// Gets or sets the <see cref="Windows.UI.Xaml.Controls.Symbol"/> value representing the icon to display.
         /// </summary>
-        public string Glyph { get; set; }
-
-        /// <summary>
-        /// Gets or sets the font family to use to display the icon. If <see langword="null"/>, "Segoe MDL2 Assets" will be used.
-        /// </summary>
-        public FontFamily FontFamily { get; set; }
+        public Symbol Symbol { get; set; }
 
         /// <inheritdoc/>
         public override object ProvideValue(IServiceProvider serviceProvider)
         {
-            var fontIcon = new FontIcon
+            var fontIcon = new FontIconSource
             {
-                Glyph = Glyph,
-                FontFamily = FontFamily ?? SegoeMDL2AssetsFontFamily,
+                Glyph = unchecked((char)Symbol).ToString(),
+                FontFamily = SegoeMDL2AssetsFontFamily,
                 FontWeight = FontWeight,
                 FontStyle = FontStyle
             };

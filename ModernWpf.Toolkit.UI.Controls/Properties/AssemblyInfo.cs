@@ -1,4 +1,5 @@
 using System.Windows;
+using System.Windows.Markup;
 
 [assembly: ThemeInfo(
     ResourceDictionaryLocation.None, //where theme specific resource dictionaries are located
@@ -8,3 +9,6 @@ using System.Windows;
                                               //(used if a resource is not found in the page,
                                               // app, or any theme specific resource dictionaries)
 )]
+
+[assembly: XmlnsPrefix("http://schemas.modernwpf.com/toolkit/controls", "controls")]
+[assembly: XmlnsDefinition("http://schemas.modernwpf.com/toolkit/controls", "ModernWpf.Toolkit.UI.Controls")]

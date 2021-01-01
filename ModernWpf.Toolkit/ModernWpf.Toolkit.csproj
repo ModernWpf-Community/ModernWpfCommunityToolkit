@@ -1,9 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
 
   <PropertyGroup>
-    <TargetFrameworks>net5.0;netcoreapp3.1;net462</TargetFrameworks>
+    <TargetFrameworks>net5.0-windows10.0.18362.0;netcoreapp3.1;net462</TargetFrameworks>
     <UseWPF>true</UseWPF>
-    <LangVersion>8.0</LangVersion>
+    <LangVersion>latest</LangVersion>
     <Title>ModernWpf Community Toolkit</Title>
     <Description>This package includes code only helpers such as Colors conversion tool and some others.</Description>
     <PackageTags>WPF ModernWpf Toolkit Windows</PackageTags>

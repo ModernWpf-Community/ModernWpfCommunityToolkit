@@ -1,10 +1,11 @@
 ﻿<ui:ResourceDictionaryEx xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                         xmlns:toolkit="clr-namespace:ModernWpf.Toolkit.UI;assembly=ModernWpf.Toolkit.UI"
                          xmlns:controls="clr-namespace:ModernWpf.Toolkit.UI.Controls"
                          xmlns:ui="http://schemas.modernwpf.com/2019">
 
     <ui:ResourceDictionaryEx.ThemeDictionaries>
-        <ResourceDictionary x:Key="Light">
+        <ResourceDictionary x:Key="Light" toolkit:ToolkitThemeDictionary.MergeOnto="Light">
             <SolidColorBrush x:Key="MarkdownBorderBrush" Color="#FFBEBEBE" />
             <SolidColorBrush x:Key="MarkdownBackgroundBrush" Color="#FFF6F8FA" />
             <SolidColorBrush x:Key="MarkdownInlineCodeBackgroundBrush" Color="#FFDDDFE1" />
@@ -13,7 +14,7 @@
             <SolidColorBrush x:Key="MarkdownCodeBackgroundBrush" Color="#FFF6F8FA" />
             <SolidColorBrush x:Key="MarkdownForegroundBrush" Color="Black"/>
         </ResourceDictionary>
-        <ResourceDictionary x:Key="Dark">
+        <ResourceDictionary x:Key="Dark" toolkit:ToolkitThemeDictionary.MergeOnto="Dark">
             <SolidColorBrush x:Key="MarkdownBorderBrush" Color="#FF424242" />
             <SolidColorBrush x:Key="MarkdownBackgroundBrush" Color="#FF202020" />
             <SolidColorBrush x:Key="MarkdownInlineCodeBackgroundBrush" Color="#FF363636" />
@@ -22,7 +23,7 @@
             <SolidColorBrush x:Key="MarkdownCodeBackgroundBrush" Color="#FF202020" />
             <SolidColorBrush x:Key="MarkdownForegroundBrush" Color="White"/>
         </ResourceDictionary>
-        <ResourceDictionary x:Key="HighContrast">
+        <ResourceDictionary x:Key="HighContrast" toolkit:ToolkitThemeDictionary.MergeOnto="HighContrast">
             <SolidColorBrush x:Key="MarkdownBorderBrush" Color="#FF424242" />
             <SolidColorBrush x:Key="MarkdownBackgroundBrush" Color="{DynamicResource SystemColorWindowColor}" />
             <SolidColorBrush x:Key="MarkdownInlineCodeBackgroundBrush" Color="#FF363636" />
@@ -34,7 +35,6 @@
     </ui:ResourceDictionaryEx.ThemeDictionaries>
 
     <Thickness x:Key="MarkdownBorderThickness">1</Thickness>
-
 
     <Style x:Key="DefaultMarkdownTextBlockStyle" TargetType="controls:MarkdownTextBlock">
         <Setter Property="Background" Value="{DynamicResource MarkdownBackgroundBrush}" />

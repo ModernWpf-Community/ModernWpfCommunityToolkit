@@ -10,10 +10,10 @@ using System.Windows.Media;
 namespace ModernWpf.Toolkit.UI.Extensions
 {
     /// <summary>
-    /// Custom <see cref="MarkupExtension"/> which can provide <see cref="FontIcon"/> values.
+    /// Custom <see cref="MarkupExtension"/> which can provide <see cref="FontIconSource"/> values.
     /// </summary>
-    [MarkupExtensionReturnType(typeof(FontIcon))]
-    public class FontIconExtension : TextIconExtension
+    [MarkupExtensionReturnType(typeof(FontIconSource))]
+    public class FontIconSourceExtension : TextIconExtension
     {
         /// <summary>
         /// Gets or sets the <see cref="string"/> value representing the icon to display.
@@ -28,7 +28,7 @@ namespace ModernWpf.Toolkit.UI.Extensions
         /// <inheritdoc/>
         public override object ProvideValue(IServiceProvider serviceProvider)
         {
-            var fontIcon = new FontIcon
+            var fontIcon = new FontIconSource
             {
                 Glyph = Glyph,
                 FontFamily = FontFamily ?? SegoeMDL2AssetsFontFamily,

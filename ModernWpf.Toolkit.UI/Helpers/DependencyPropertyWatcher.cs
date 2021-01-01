@@ -19,7 +19,7 @@ namespace ModernWpf.Toolkit.UI.Helpers
         /// </summary>
         public static readonly DependencyProperty ValueProperty =
             DependencyProperty.Register(
-                "Value",
+                nameof(Value),
                 typeof(object),
                 typeof(DependencyPropertyWatcher<T>),
                 new PropertyMetadata(null, OnPropertyChanged));

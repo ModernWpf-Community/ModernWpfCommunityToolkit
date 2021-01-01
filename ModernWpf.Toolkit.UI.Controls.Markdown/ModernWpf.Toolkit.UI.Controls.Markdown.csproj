@@ -3,25 +3,13 @@
   <PropertyGroup>
     <TargetFrameworks>net5.0-windows10.0.18362.0;netcoreapp3.1;net462</TargetFrameworks>
     <UseWPF>true</UseWPF>
-    <LangVersion>8.0</LangVersion>
+    <LangVersion>latest</LangVersion>
     <Title>ModernWpf Community Toolkit Controls Markdown</Title>
     <Description>
       This library provides a XAML MarkdownTextBlock control, an efficient and extensible control that can parse and render markdown. It is part of the ModernWpf Community Toolkit.
     </Description>
     <PackageTags>WPF ModernWpf Toolkit Windows Controls XAML Markdown MarkdownTextBlock</PackageTags>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Page Remove="Properties\DesignTimeResources.xaml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="Properties\DesignTimeResources.xaml">
-      <ContainsDesignTimeResources>True</ContainsDesignTimeResources>
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </None>
-  </ItemGroup>
   
   <ItemGroup>
     <PackageReference Include="ColorCode.Core" Version="2.0.6" />

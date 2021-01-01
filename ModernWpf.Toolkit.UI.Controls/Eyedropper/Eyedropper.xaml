@@ -2,7 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:ui="http://schemas.modernwpf.com/2019"
                     xmlns:controls="clr-namespace:ModernWpf.Toolkit.UI.Controls">
-    
+
     <Style TargetType="controls:Eyedropper">
         <Setter Property="Background" Value="{DynamicResource SystemControlAcrylicElementBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource SystemControlBackgroundBaseMediumBrush}" />
@@ -81,5 +81,5 @@
             </Setter.Value>
         </Setter>
     </Style>
-    
+
 </ResourceDictionary>

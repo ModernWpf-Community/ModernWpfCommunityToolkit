@@ -22,13 +22,13 @@ namespace ModernWpf.Toolkit.UI.Controls
             var instance = d as MarkdownTextBlock;
 
             // Defer to the instance method.
-            instance?.OnPropertyChanged(d, e);
+            instance?.OnPropertyChanged(d, e.Property);
         }
 
         /// <summary>
         /// Fired when the value of a DependencyProperty is changed.
         /// </summary>
-        private void OnPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        private void OnPropertyChanged(DependencyObject d, DependencyProperty e)
         {
             RenderMarkdown();
         }

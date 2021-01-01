@@ -8,7 +8,6 @@ namespace ModernWpf.Toolkit.UI.Controls.Markdown.Inlines
     {
         public CodeUIElementInline()
         {
-
         }
 
         /// <summary>
@@ -26,9 +25,12 @@ namespace ModernWpf.Toolkit.UI.Controls.Markdown.Inlines
             set => SetValue(TextProperty, value);
         }
 
-        public static readonly DependencyProperty TextProperty = DependencyProperty.Register(
-            nameof(Text), typeof(string), typeof(CodeUIElementInline),
-            new PropertyMetadata(""));
+        public static readonly DependencyProperty TextProperty =
+            DependencyProperty.Register(
+                nameof(Text),
+                typeof(string),
+                typeof(CodeUIElementInline),
+                new PropertyMetadata(""));
 
         protected override bool ShouldSerializeProperty(DependencyProperty dp)
             => dp.Name == nameof(Text) && base.ShouldSerializeProperty(dp);

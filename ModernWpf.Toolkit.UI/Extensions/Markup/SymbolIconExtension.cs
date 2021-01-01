@@ -25,6 +25,7 @@ namespace ModernWpf.Toolkit.UI.Extensions
             var fontIcon = new FontIcon
             {
                 Glyph = unchecked((char)Symbol).ToString(),
+                FontFamily = SegoeMDL2AssetsFontFamily,
                 FontWeight = FontWeight,
                 FontStyle = FontStyle
             };
